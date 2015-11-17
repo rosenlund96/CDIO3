@@ -7,4 +7,6 @@ public class Fleet {
 	private int RENT_3 = 2000;
 	private int RENT_4 = 4000;
 	
+	
+	
 }
