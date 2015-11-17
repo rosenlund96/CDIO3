@@ -7,11 +7,14 @@ public class Tax extends Field {
 	
 	
 
-	public Tax(String name, int activePlayerPos, int taxRate, int taxAmount) {
-		super(name, activePlayerPos);
+
+
+	public Tax(FieldManager fm, fieldType ft, double taxRate, int taxAmount) {
+		super(fm, ft);
 		this.taxRate = taxRate;
 		this.taxAmount = taxAmount;
 	}
+
 
 	@Override
 	public void landOnField(Player activePlayer) {
