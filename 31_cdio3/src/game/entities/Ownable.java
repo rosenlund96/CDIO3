@@ -2,17 +2,14 @@ package game.entities;
 
 public abstract class Ownable {
 
-	private int price;
-	private Player owner;
+	protected int price;
+	protected Player owner;
 
-	public Ownable(int price, Player owner) {
+	public Ownable(int price) {
 		super();
 		this.price = price;
-		this.owner = owner;
 	}
 	
-	public int getRent() {
-		return getRent();
-	}
+	public abstract int getRent();
 	
 }
