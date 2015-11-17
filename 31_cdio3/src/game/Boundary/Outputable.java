@@ -10,10 +10,10 @@ public interface Outputable {
 	public void showWelcome();
 	public void showWinner(String playerName);
 	
-	public String promptPlayerName();
+	public String promptPlayerName(int playerNumber);
 	public void promptRollDice(String playerName);
 	
-	public void addPlayer(String playerName, int balance);
+	public void addPlayer(String playerName, int balance, int playerNo);
 	
 	public void initializeBoard();
 }
