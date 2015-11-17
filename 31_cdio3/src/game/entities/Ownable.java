@@ -1,6 +1,6 @@
 package game.entities;
 
-public abstract class Ownable {
+public class Ownable {
 
 	private int price;
 	private Player owner;
