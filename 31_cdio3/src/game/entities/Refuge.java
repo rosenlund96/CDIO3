@@ -5,8 +5,9 @@ public class Refuge extends Field {
 	int bonus; 
 	
 	
-	public Refuge(String name, int activePlayerPos, int bonus) {
-		super(name, activePlayerPos);
+
+	public Refuge(FieldManager fm, fieldType ft, int bonus) {
+		super(fm, ft);
 		this.bonus = bonus;
 	}
 
