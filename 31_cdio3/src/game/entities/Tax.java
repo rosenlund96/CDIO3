@@ -6,22 +6,26 @@ public class Tax extends Field {
 	int taxAmount;
 	
 	
-
-
-
-	public Tax(FieldManager fm, fieldType ft, double taxRate, int taxAmount) {
-		super(fm, ft);
+	public Tax(FieldManager fm, String fieldType, double taxRate, int taxAmount) {
+		super(fm, fieldType);
 		this.taxRate = taxRate;
 		this.taxAmount = taxAmount;
 	}
 
 
+
+
+
+
+
+
 	@Override
 	public void landOnField(Player activePlayer) {
-		if(Field[16]){
+		if(fieldType == Tax1){
 			taxAmount = 2000;
+			activePlayer.changeBalance(taxAmount);
 		}
-		else if(Field[17]){
+		else {
 			taxAmount = 4000; 
 			taxRate = activePlayer.getBalance()*0.1; 
 		}

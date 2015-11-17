@@ -1,6 +1,6 @@
 package game.entities;
 
-public abstract class Ownable {
+public abstract class Ownable extends Field {
 
 	protected int price;
 	protected Player owner;
