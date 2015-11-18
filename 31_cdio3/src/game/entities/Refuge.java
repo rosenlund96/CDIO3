@@ -16,9 +16,9 @@ public class Refuge extends Field {
 	@Override
 	public void landOnField(Player player) {
 		if(bonus == 5000){
-			depositBonus(5000);
+			depositBonus(player, 5000);
 		} else if(bonus == 500){
-			depositBonus(500);
+			depositBonus(player, 500);
 		}
 		
 	
