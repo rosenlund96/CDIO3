@@ -5,6 +5,7 @@ import game.Boundary.Outputable;
 public abstract class Field {
 
 	FieldManager fieldManager;
+	public enum FieldType{TERRITORY, LABOR_CAMP, FLEET, TAX, REFUGE}
 	protected FieldType fieldType;
 	protected Outputable output;
 	
