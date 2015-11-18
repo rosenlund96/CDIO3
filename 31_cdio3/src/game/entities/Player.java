@@ -8,6 +8,7 @@ public class Player {
 	private int position = 0;
 	private String name;
 	private Balance balance;
+	private boolean isBroke; 
 
 	// Constructors
 
@@ -37,6 +38,15 @@ public class Player {
 
 	public int withdraw(int amount){
 		return balance.withdraw(amount);
+	}
+	
+	public boolean getBroke(){
+		return isBroke; 
+	}
+	
+	public void setBroke(boolean isBroke){
+		this.isBroke = isBroke; 
+		
 	}
 
 }
