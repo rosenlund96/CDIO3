@@ -7,8 +7,8 @@ public class Refuge extends Field {
 	protected int bonus; 
 	
 	
-	public Refuge(FieldManager fm, FieldType fieldType, int bonus, Outputable output) {
-		super(fm, fieldType, output);
+	public Refuge(FieldManager fm, int bonus, Outputable output) {
+		super(fm, FieldType.REFUGE, output);
 		this.bonus = bonus;
 	}
 

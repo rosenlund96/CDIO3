@@ -1,13 +1,15 @@
 package game.entities;
 
+import game.Boundary.Outputable;
+
 public class Tax extends Field {
 
 	int taxAmount;
 
 
 
-	public Tax(FieldManager fm, FieldType fieldType, int taxAmount, Outputable output) {
-		super(fm, fieldType, output);
+	public Tax(FieldManager fm, int taxAmount, Outputable output) {
+		super(fm, FieldType.TAX, output);
 		this.taxAmount = taxAmount;
 	}
 
@@ -17,7 +19,7 @@ public class Tax extends Field {
 	public void landOnField(Player player) {
 		// If tax is 2000
 		if(taxAmount == 2000){
-			collectTax(2000);
+			collectTax(2000, player);
 		}else if(taxAmount == 4000){
 			int value = fieldManager.getFieldsValue(player);
 			int balance = player.getBalance();
