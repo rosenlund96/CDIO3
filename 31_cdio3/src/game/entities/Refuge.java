@@ -1,27 +1,38 @@
 package game.entities;
 
+import game.Boundary.Outputable;
+import game.entities.Field.FieldType;
+
 public class Refuge extends Field {
 
-	int bonus; 
+	protected int bonus; 
+	protected FieldType fieldType; 
 	
 	
-
-	public Refuge(FieldManager fm, fieldType ft, int bonus) {
-		super(fm, ft);
+	public Refuge(FieldManager fm, int bonus, Outputable output) {
+		super(fm, output);
 		this.bonus = bonus;
+		this.fieldType = FieldType.REFUGE;
 	}
-
 
 
 	@Override
-	public void landOnField(Player activePlayer) {
-		if(Field[12]){
-			activePlayer.changeBalance(bonus);
-		}
-		else if(Field[13]){
-			activePlayer.changeBalance(bonus);
+	public void landOnField(Player player) {
+		if(bonus == 5000){
+			depositBonus(player, 5000);
+		} else if(bonus == 500){
+			depositBonus(player, 500);
 		}
 		
+	
 	}
+	
+	
+	private void depositBonus(Player player, int bonus){
+		player.deposit(bonus);
+		output.showDepositMessage(player.getName(), bonus);
+	}
+	
 
+	
 }
