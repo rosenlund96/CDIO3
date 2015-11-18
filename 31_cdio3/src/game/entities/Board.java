@@ -64,5 +64,9 @@ public class Board {
 	public int getActivePlayerBalance(){
 		return activePlayer.getBalance();
 	}
+	
+	public int getNumberOfPlayers(){
+		return numberOfPlayers;
+	}
 
 }
