@@ -1,6 +1,7 @@
 package game.entities;
 
 import game.Boundary.Outputable;
+import game.entities.Field.FieldType;
 import game.resources.FieldData;
 
 public class FieldManager {
@@ -12,6 +13,29 @@ public class FieldManager {
 		initializeFields(gui);
 		
 	}
+	// Is used to find the number of specific fieldtypes a player owns.
+	public int getFieldsOwned(Player player, FieldType fieldtype){
+		int count = 0;
+		for (int i = 0; i < fields.length; i++) {
+			if (fields[i].getOwner() == player && fields[i].getFieldType() == fieldtype){
+				count ++;		
+			}
+		}
+		return count;
+	}
+	// Is used to calculate the tax value of all owned fields.
+	public int FieldsValue(Player player){
+		int value = 0;
+		for (int i = 0; i < fields.length; i++) {
+			if (fields[i].getOwner() == player){
+				value += fields[i].getValue();
+			}
+		}
+		return value;
+	}
+	
+	
+	
 	private void initializeFields(Outputable gui){
 		fields = new Field[NUMBER_OF_FIELDS];
 		
