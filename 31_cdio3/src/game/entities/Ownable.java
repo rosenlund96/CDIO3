@@ -27,7 +27,7 @@ public abstract class Ownable extends Field {
 		}
 	}
 	
-	
+	// fuck det her pis
 	public abstract int getRent();
 	
 }
