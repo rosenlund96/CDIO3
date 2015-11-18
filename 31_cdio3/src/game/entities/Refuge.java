@@ -1,15 +1,18 @@
 package game.entities;
 
 import game.Boundary.Outputable;
+import game.entities.Field.FieldType;
 
 public class Refuge extends Field {
 
 	protected int bonus; 
+	protected FieldType fieldType; 
 	
 	
-	public Refuge(FieldManager fm, FieldType fieldType, int bonus, Outputable output) {
-		super(fm, fieldType, output);
+	public Refuge(FieldManager fm, int bonus, Outputable output) {
+		super(fm, output);
 		this.bonus = bonus;
+		this.fieldType = FieldType.REFUGE;
 	}
 
 

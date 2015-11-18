@@ -6,7 +6,7 @@ import game.resources.FieldData;
 
 public class FieldManager {
 	
-	private final int NUMBER_OF_FIELDS = 21;
+	public final int NUMBER_OF_FIELDS = 21;
 	private Field[] fields;
 	
 	public FieldManager(Outputable gui){
@@ -24,7 +24,7 @@ public class FieldManager {
 		return count;
 	}
 	// Is used to calculate the tax value of all owned fields.
-	public int FieldsValue(Player player){
+	public int getFieldsValue(Player player){
 		int value = 0;
 		for (int i = 0; i < fields.length; i++) {
 			if (fields[i].getOwner() == player){
@@ -53,12 +53,13 @@ public class FieldManager {
 			break;
 			case REFUGE: fields[i] = new Refuge(this, FieldData.FIELDRENT_DATA[i], gui);
 			break;
-			
-			}
-			
-		}
-		
-		
+			}	
+		}	
 	}
+	
+	public int getNumberOfFields(){
+		return NUMBER_OF_FIELDS;
+	}
+	
 
 }
