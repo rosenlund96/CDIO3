@@ -11,6 +11,7 @@ public class Board {
 	Player activePlayer;
 	int numberOfPlayers;
 	FieldManager fm;
+	
 
 	// Konstruktor
 	public Board(String[] names, int startingBalance, Outputable gui){
@@ -20,8 +21,6 @@ public class Board {
 		fm = new FieldManager(gui);
 		numberOfPlayers = names.length;
 	}
-
-
 
 	public void moveActivePlayer(int amount ){
 		activePlayer.setPosition((activePlayer.getPosition()+ amount)%fm.getNumberOfFields() );
@@ -36,12 +35,27 @@ public class Board {
 		activePlayer = players.get(random);
 		
 	}
-
+	// Finds a potential winner
 	public boolean getWinner(){
-
+		// Updates players arraylist 
+		for (int i = 0; i < players.size(); i++) {
+			if (players.get(i).getBroke()){
+				players.remove(i);
+			}
+		}
+		// If arraylist is only one player long we have a winner
+		if (players.size() == 1){
+			return true;
+		}
+		return false;
 	}
-
-
+	
+	public void nextTurn(){
+	
+	
+		
+	}
+	
 	public int getActiveplayerPosition(){
 		return activePlayer.getPosition();
 
