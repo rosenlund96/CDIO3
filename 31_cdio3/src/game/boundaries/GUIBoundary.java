@@ -1,4 +1,4 @@
-package game.Boundary;
+package game.boundaries;
 
 import java.awt.Color;
 
@@ -12,7 +12,7 @@ import game.util.XMLReader;
 public class GUIBoundary implements Outputable{
 
 	XMLReader reader;
-	
+
 	public GUIBoundary(String langFilePath){
 		reader = new XMLReader(langFilePath);
 	}
@@ -24,10 +24,10 @@ public class GUIBoundary implements Outputable{
 	public void update(int[] dice, int pos, int balance, String playerName) {
 		// Updating dice values
 		GUI.setDice(dice[0], dice[1]);
-		
+
 		// Updating active player balance
 		GUI.setBalance(playerName, balance);
-		
+
 		// Removing players current car
 		GUI.removeAllCars(playerName);
 		// Adding player car at updated position
@@ -37,20 +37,38 @@ public class GUIBoundary implements Outputable{
 	@Override
 	public void showWelcome() {
 		GUI.showMessage(reader.getElement("welcome", 0));
-		
+
 	}
 
+	@Override
+	public void showStartingPlayer(String playerName){
+		String s1 = reader.getElement("starting", 0);
+		
+		String msg = playerName + " " + s1;
+		
+		GUI.showMessage(msg);
+	}
+	
 	@Override
 	public void showWinner(String playerName) {
 		GUI.showMessage(playerName + " " + reader.getElement("winner", 0));
-		
+
 	}
 
 	@Override
-	public String promptPlayerName(int playerNumber) {
-		String s1 = reader.getElement("promptName", 0);
-		String s2 = reader.getElement("promptName", 1);
-		String msg = s1 + " " + playerNumber + " " + s2;
+	public String promptPlayerName(int playerNumber, boolean error) {
+		String s1, s2, msg;
+		if(error){
+			s1 = reader.getElement("promptName", 2);
+			msg = GUI.getUserString(s1);
+			
+		}
+		else{
+			s1 = reader.getElement("promptName", 0);
+			s2 = reader.getElement("promptName", 1);
+			msg = s1 + " " + playerNumber + " " + s2;
+		}
+
 		return GUI.getUserString(msg);
 	}
 
@@ -70,18 +88,18 @@ public class GUIBoundary implements Outputable{
 	 ***********************************************************************/
 	public void addPlayer(String playerName, int balance, int playerNumber) {
 		Color[] colors = {Color.BLUE, Color.WHITE, Color.MAGENTA, Color.YELLOW, Color.BLACK, Color.GREEN};
-		
+
 		Car car = new Car.Builder()
 				.primaryColor(colors[playerNumber])
 				.secondaryColor(colors[5-playerNumber]).build();
 		GUI.addPlayer(playerName, balance, car);
-		
+
 	}
 
 	@Override
 	public void initializeBoard() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

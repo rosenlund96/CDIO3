@@ -1,7 +1,7 @@
 package game;
 
-import game.Boundary.GUIBoundary;
-import game.Boundary.Outputable;
+import game.boundaries.GUIBoundary;
+import game.boundaries.Outputable;
 
 public class App {
 	public static void main(String[] args){

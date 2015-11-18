@@ -3,6 +3,8 @@
 	<welcome>Velkommen til spillet, indtast 1-6 navne. Når alle navne er indtastet, trykkes der ok, uden at indtaste et navn og spillet vil starte</welcome>
 	<promptName>Indtast navn på spiller</promptName>
 	<promptName>Lad feltet være tomt for at starte spillet</promptName>
+	<promptName>Du skal indtaste mindst et navn</promptName>
+	<starting>starter</starting>
 	<roll>Kast Terningerne</roll>
 	<winner>har vundet spillet. Ønskes omspil?</winner>
 </strings>
