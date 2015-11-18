@@ -1,24 +1,29 @@
 package game.entities;
 
+import game.Boundary.Outputable;
+
 public abstract class Field {
 
-	FieldManager fm = new FieldManager;
-	protected String fieldType;
+	FieldManager fieldManager;
+	public enum FieldType{TERRITORY, LABOR_CAMP, FLEET, TAX, REFUGE}
+	protected FieldType fieldType;
+	protected Outputable output;
 	
 	
 	
-	public Field(FieldManager fm,  String fieldType) {
-
+	public Field(FieldManager fm,  FieldType fieldType, Outputable output) {
+		this.fieldManager = fm;
 		this.fieldType = fieldType;
+		this.output = output;
 		
 	} 
 	
 	
-	public String getFieldType(String fieldType){
+	public FieldType getFieldType(){
 		return fieldType;
 	}
 	
-	public abstract void landOnField(Player activePlayer);
+	public abstract void landOnField(Player player);
 		//Vil blive kaldt hver gang en spiller lander på et felt. 
 	
 
