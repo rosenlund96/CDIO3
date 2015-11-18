@@ -10,7 +10,10 @@ public class Territory extends Ownable {
 	}
 
 	private void collectRent (int rent, Player player, Player owner){
-		player.transfer
+		if 
+		
+		//player.transfer (rent, owner);
+		
 	}
 	
 	
