@@ -6,7 +6,7 @@ import game.resources.FieldData;
 
 public class FieldManager {
 	
-	private final int NUMBER_OF_FIELDS = 21;
+	public final int NUMBER_OF_FIELDS = 21;
 	private Field[] fields;
 	
 	public FieldManager(Outputable gui){
@@ -53,12 +53,13 @@ public class FieldManager {
 			break;
 			case REFUGE: fields[i] = new Refuge(this, FieldData.FIELDRENT_DATA[i], gui);
 			break;
-			
-			}
-			
-		}
-		
-		
+			}	
+		}	
 	}
+	
+	public int getNumberOfFields(){
+		return NUMBER_OF_FIELDS;
+	}
+	
 
 }
