@@ -1,14 +1,27 @@
 package game.entities;
 
+import java.util.ArrayList;
+
+import game.Boundary.Outputable;
+
 public class Board {
-
-	Board(String[] names, int startingBalance, Gui Boundary){
-
+	
+	
+	ArrayList<Player> players;
+	// Konstruktor
+	public Board(String[] names, int startingBalance, Outputable gui){
+		for (int i = 0; i < names.length; i++) {
+			players.add(new Player(names[i], startingBalance));
+		}
+		FieldManager fm = new FieldManager(gui);
+		
+		
 	}
 
 
 
 	public void moveActivePlayer(int amount ){
+		
 
 	}
 
