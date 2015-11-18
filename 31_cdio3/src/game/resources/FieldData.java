@@ -11,7 +11,16 @@ public class FieldData {
 	public static final FieldType[] FIELDTYPE_DATA = {
 			Field.FieldType.TERRITORY ,Field.FieldType.TERRITORY,
 			Field.FieldType.TERRITORY, Field.FieldType.FLEET, 
-			Field.FieldType.REFUGE, Field.FieldType.TAX};
+			Field.FieldType.REFUGE, Field.FieldType.TAX, 
+			Field.FieldType.TERRITORY, Field.FieldType.TERRITORY,
+			Field.FieldType.TERRITORY, Field.FieldType.FLEET,
+			Field.FieldType.LABOR_CAMP, Field.FieldType.TERRITORY,
+			Field.FieldType.TERRITORY, Field.FieldType.TERRITORY,
+			Field.FieldType.FLEET, Field.FieldType.TAX, 
+			Field.FieldType.REFUGE, Field.FieldType.LABOR_CAMP,
+			Field.FieldType.TERRITORY, Field.FieldType.TERRITORY,
+			Field.FieldType.FLEET
+			};
 	
 	
 }
