@@ -7,8 +7,8 @@ public class Fleet extends Ownable {
 	private static final int RENT_3 = 2000;
 	private static final int RENT_4 = 4000;
 	
-	public Fleet(int price) {
-		super(price);
+	public Fleet(FieldManager fm, int price, Outputable output) {
+		super(fm, price, output);
 
 	}
 
