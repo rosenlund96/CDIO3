@@ -24,7 +24,7 @@ public class FieldManager {
 		return count;
 	}
 	// Is used to calculate the tax value of all owned fields.
-	public int FieldsValue(Player player){
+	public int getFieldsValue(Player player){
 		int value = 0;
 		for (int i = 0; i < fields.length; i++) {
 			if (fields[i].getOwner() == player){
