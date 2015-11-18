@@ -60,7 +60,12 @@ public class GUIBoundary implements Outputable{
 		String msg = playerName + ". " + s1;
 		GUI.showMessage(msg);
 	}
-
+	
+	@Override
+	public boolean promptTax(String playerName, int taxAmount, int percentAmount){
+		
+		return true;
+	}
 	/************************************************************************
 	 * Adds a new player to the board. using balance, name, and player #	*
 	 * 																		*

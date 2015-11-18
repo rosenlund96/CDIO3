@@ -24,19 +24,22 @@ public class Tax extends Field {
 			int totalAssets = value + balance;
 			int pay10 = (int)Math.round(totalAssets*0.1);
 			
+			boolean percent = output.promptTax(player.getName(), taxAmount, pay10);
+			if(percent)
+				collectTax(pay10, player);
+			else
+				collectTax(taxAmount, player);
+			
 		}
 
 
 	}
 	
-	private void collectTax(int amount){
-		player.withdraw(amount);
+	private void collectTax(int amount, Player player){
 		if(player.withdraw(amount) < amount){
 			player.setBroke(true);
 		}
+		output.showWithdrawMessage(player.getName(), amount);
 	}
 	
-	private int promptPlayerTax(int amount){
-		
-	}
 }
