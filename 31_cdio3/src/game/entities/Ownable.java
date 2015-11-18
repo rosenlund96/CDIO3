@@ -5,10 +5,11 @@ public abstract class Ownable extends Field {
 	protected int price;
 	protected Player owner;
 
-	public Ownable(int price) {
-		super();
+	public Ownable(FieldManager fm, int price, Outputable output) {
+		super(fm, output);
 		this.price = price;
 	}
+	
 	
 	public abstract int getRent();
 	

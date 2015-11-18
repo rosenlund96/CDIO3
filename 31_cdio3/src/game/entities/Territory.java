@@ -4,8 +4,8 @@ public class Territory extends Ownable {
 	
 	private int rent;
 
-	public Territory(int price, int rent) {
-		super(price);
+	public Territory(FieldManager fm, int price, int rent, Outputable output) {
+		super(fm, price, output);
 		this.rent = rent;
 	}
 
@@ -14,4 +14,5 @@ public class Territory extends Ownable {
 		return 0;
 	}
 
+	
 }
