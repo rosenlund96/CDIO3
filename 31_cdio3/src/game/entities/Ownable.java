@@ -5,11 +5,13 @@ import game.Boundary.Outputable;
 public abstract class Ownable extends Field {
 
 	protected int price;
+	protected int rent; 
 	protected Player owner;
 
-	public Ownable(FieldManager fm, int price, Outputable output) {
+	public Ownable(FieldManager fm, int price, int rent ,Outputable output) {
 		super(fm, output);
 		this.price = price;
+		this.rent = rent; 
 	}
 	
 	@Override
@@ -25,6 +27,15 @@ public abstract class Ownable extends Field {
 			output.showNotEnoughBalanceMessage(player);
 		}
 		}
+	}
+	
+	
+	public void setOwner(Player owner){
+		this.owner = owner; 
+	}
+	
+	public Player getOwner(){
+		return owner; 
 	}
 	
 	// fuck det her pis

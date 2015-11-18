@@ -11,9 +11,8 @@ public abstract class Field {
 	
 	
 	
-	public Field(FieldManager fm,  FieldType fieldType, Outputable output) {
+	public Field(FieldManager fm, Outputable output) {
 		this.fieldManager = fm;
-		this.fieldType = fieldType;
 		this.output = output;
 		
 	} 

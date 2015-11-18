@@ -5,12 +5,14 @@ import game.Boundary.Outputable;
 public class Tax extends Field {
 
 	int taxAmount;
+	protected FieldType fieldType; 
 
 
 
 	public Tax(FieldManager fm, int taxAmount, Outputable output) {
-		super(fm, FieldType.TAX, output);
+		super(fm, output);
 		this.taxAmount = taxAmount;
+		this.fieldType = FieldType.TAX;
 	}
 
 
