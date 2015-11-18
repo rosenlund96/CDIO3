@@ -13,17 +13,18 @@ public abstract class Ownable extends Field {
 	}
 	
 	@Override
-	public abstract void landOnField(Player player){
+	public void landOnField(Player player){
 		//Hvis feltet er ledigt
-		int playerBalance = player.getBalance();
+		if(this.owner == null){
+		int balance = player.getBalance();
+		if(balance >= price) {
 		output.promptBuy(player.getName(), price);
-		
-		
-		
-		
-		
-		
-		//Hvis feltet er ejet.
+		player.withdraw(price);	
+		}
+		else {
+			output.showNotEnoughBalanceMessage(player);
+		}
+		}
 	}
 	
 	
