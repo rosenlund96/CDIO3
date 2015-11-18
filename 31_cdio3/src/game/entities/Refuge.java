@@ -25,7 +25,11 @@ public class Refuge extends Field {
 	}
 	
 	
-	private void depositBonus(int bonus){
+	private void depositBonus(Player player, int bonus){
 		player.deposit(bonus);
+		output.showDepositMessage(player.getName(), bonus);
 	}
+	
+
+	
 }
