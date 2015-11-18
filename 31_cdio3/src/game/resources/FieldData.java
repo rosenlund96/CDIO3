@@ -7,7 +7,10 @@ public class FieldData {
 	
 	public static final int[] FIELDRENT_DATA = {};
 	public static final int[] FIELDBUYPRICE_DATA = {};
-	public static final boolean[] FIELDOWABLE_DATA = {};
+	public static final boolean[] FIELDOWABLE_DATA = {
+			true, true, true, true, true, false, false, true, true, true, 
+			true, true, true, true, true, false, false, true, true, true, 
+			true};
 	public static final FieldType[] FIELDTYPE_DATA = {
 			Field.FieldType.TERRITORY ,Field.FieldType.TERRITORY,
 			Field.FieldType.TERRITORY, Field.FieldType.FLEET, 
