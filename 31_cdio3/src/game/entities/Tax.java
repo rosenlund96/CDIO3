@@ -2,34 +2,41 @@ package game.entities;
 
 public class Tax extends Field {
 
-	double taxRate = -1;
 	int taxAmount;
-	
-	
-	public Tax(FieldManager fm, String fieldType, double taxRate, int taxAmount) {
-		super(fm, fieldType);
-		this.taxRate = taxRate;
+
+
+
+	public Tax(FieldManager fm, FieldType fieldType, int taxAmount, Outputable output) {
+		super(fm, fieldType, output);
 		this.taxAmount = taxAmount;
 	}
 
 
 
-
-
-
-
-
 	@Override
-	public void landOnField(Player activePlayer) {
-		if(fieldType == Tax1){
-			taxAmount = 2000;
-			activePlayer.changeBalance(taxAmount);
+	public void landOnField(Player player) {
+		// If tax is 2000
+		if(taxAmount == 2000){
+			collectTax(2000);
+		}else if(taxAmount == 4000){
+			int value = fieldManager.getFieldsValue(player);
+			int balance = player.getBalance();
+			int totalAssets = value + balance;
+			int pay10 = (int)Math.round(totalAssets*0.1);
+			
 		}
-		else {
-			taxAmount = 4000; 
-			taxRate = activePlayer.getBalance()*0.1; 
-		}
-		
 
-}
+
+	}
+	
+	private void collectTax(int amount){
+		player.withdraw(amount);
+		if(player.withdraw(amount) < amount){
+			player.setBroke(true);
+		}
+	}
+	
+	private int promptPlayerTax(int amount){
+		
+	}
 }
