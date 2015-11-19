@@ -45,7 +45,7 @@ public class FieldManager {
 				FieldData.FIELDRENT_DATA[i], gui);
 			break;
 			case LABOR_CAMP: fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i],
-				FieldData.FIELDRENT_DATA[i], gui);
+				FieldData.FIELDRENT_DATA[i], i, gui);
 			break;
 			case FLEET: fields[i] = new Fleet(this, FieldData.FIELDRENT_DATA[i], gui);
 			break;
