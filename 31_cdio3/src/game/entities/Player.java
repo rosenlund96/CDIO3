@@ -12,9 +12,11 @@ public class Player {
 
 	// Constructors
 
-	public Player(String name, int startingBalance){
+	public Player(String name, int startingBalance, int position, boolean isBroke){
 		this.name = name;
 		this.balance = new Balance(startingBalance);
+		this.isBroke = false; 
+		this.position = position;
 	}
 
 	// Mutators
@@ -47,6 +49,9 @@ public class Player {
 	public void setBroke(boolean isBroke){
 		this.isBroke = isBroke; 
 		//sætter spilleren til bankerot, hvis der ikke er flere knaster. 
+	}
+	public int getBalance(){
+		return balance;
 	}
 
 }
