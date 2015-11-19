@@ -29,4 +29,8 @@ public interface Outputable {
 	public void addPlayer(String playerName, int balance, int playerNo);
 	
 	public void initializeBoard();
+
+	public void promptBuy(String name, int price);
+
+	public void showNotEnoughBalanceMessage(Player player);
 }

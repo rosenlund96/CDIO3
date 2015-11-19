@@ -16,7 +16,7 @@ public class LaborCamp extends Ownable {
 
 	
 	public void landOnField(Player player){
-		int dieSum = DieCup.getSum();
+		dieSum = DieCup.getSum();
 		baseRent = 100; 
 		int fieldsOwned = FieldManager.getFieldsOwned(owner, fieldType.LABOR_CAMP);
 		int amountToPay = dieSum * baseRent * fieldsOwned; 
