@@ -1,4 +1,7 @@
 package game.Boundary;
+
+import game.entities.Player;
+
 /**
  * 
  * Interface defining methods for input output to screen from game
@@ -11,6 +14,10 @@ public interface Outputable {
 	public void showWinner(String playerName);
 	public void showWithdrawMessage(String playerName, int amount);
 	public void showDepositMessage(String playerName, int bonus);
+	//Du er landet på et felt ejet af en anden og skal betale amountToPay, overførsel godkendt
+	public void showTransferMessageSucces(Player owner, int amountToPay);
+	//Du er landet på et felt ejet af en anden og skal betale amountToPay, du har ikke nok penge og er gået bankerot
+	public void showTransferMessageFailed(Player owner, int amountToPay);
 	
 	public String promptPlayerName(int playerNumber);
 	public void promptRollDice(String playerName);
