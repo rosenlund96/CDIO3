@@ -14,7 +14,6 @@ public class LaborCamp extends Ownable {
 		this.baseRent = baseRent;
 		dices = new DieCup();
 	}
-
 	
 	public void landOnField(Player player){
 		if (this.owner == null) {
@@ -46,13 +45,8 @@ public class LaborCamp extends Ownable {
 		}
 	}
 	
-	
-	
 	@Override
 	public int getRent() {
 		return rent;
-	}
-	
-	
-
+	}	
 }
