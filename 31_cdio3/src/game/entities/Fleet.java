@@ -15,8 +15,6 @@ public class Fleet extends Ownable {
 		
 	}
 
-
-
 	@Override
 	public void landOnField (Player Player) {
 			for (int player = 0; player < Board.getNumberOfPlayers(); player++) {
