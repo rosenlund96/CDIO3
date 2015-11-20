@@ -49,14 +49,9 @@ public class Fleet extends Ownable {
 	}
 	
 	
-	
-	
 	@Override
 	public int getRent() {
 		return 0;
 	}
-
-	
-	
 	
 }
