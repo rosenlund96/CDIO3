@@ -15,22 +15,43 @@ public class Fleet extends Ownable {
 		
 	}
 
-
-
 	@Override
-	public void landOnField (Player Player) {
-			for (int player = 0; player < Board.getNumberOfPlayers(); player++) {
-			fieldManager.getFieldsOwned(player, fieldType.FLEET);
+	public void landOnField (Player player) {
+			int fieldsOwned = fieldManager.getFieldsOwned(player, FieldType.FLEET);
+			if (fieldsOwned == 1){
+				transferRent(RENT_1, player, owner);
 			}
+			else if(fieldsOwned == 2){
+				transferRent(RENT_2, player, owner);
+			}
+			else if(fieldsOwned == 3){
+				transferRent(RENT_3, player, owner);
+			}
+			else if(fieldsOwned == 4){
+				transferRent(RENT_4, player, owner);
+			}
+			
 		}
+	
+	
+	public void transferRent(int rentAmount, Player player, Player owner){
+		if (player.getBalance()>=rent) {
+		player.withdraw(rentAmount);
+		owner.deposit(rentAmount);
+		output.showLandOnOwnedFieldMessage(rentAmount, owner);
+		}
+		else if(player.getBalance() < rent){
+			owner.deposit(player.getBalance());
+			player.withdraw(player.getBalance());
+			player.setBroke(true);
+			output.showBrokeMessage(owner, rent, player.getBalance());
+	}
+	}
 	
 	
 	@Override
 	public int getRent() {
 		return 0;
 	}
-
-	
-	
 	
 }

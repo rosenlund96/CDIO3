@@ -16,7 +16,7 @@ public class Board {
 	// Konstruktor
 	public Board(String[] names, int startingBalance, Outputable gui){
 		for (int i = 0; i < names.length; i++) {
-			players.add(new Player(names[i], startingBalance));
+			players.add(new Player(names[i], startingBalance, i, false));
 		}
 		fm = new FieldManager(gui);
 		numberOfPlayers = names.length;

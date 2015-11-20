@@ -37,12 +37,4 @@ public class Balance {
 		this.balance = balance;
 	}
 
-
-
-
-
-
-
-
-
 }
