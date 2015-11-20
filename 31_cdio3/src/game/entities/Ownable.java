@@ -17,10 +17,10 @@ public abstract class Ownable extends Field {
 	public int getPrice(){
 		return price;
 	}
-
+	
+	//Hvis feltet er ledigt
 	@Override
 	public void landOnField(Player player){
-		//Hvis feltet er ledigt
 		if(this.owner == null){
 			int balance = player.getBalance();
 			if(balance >= price) {
@@ -34,7 +34,7 @@ public abstract class Ownable extends Field {
 	}
 
 
-	public void setOwner(Player owner){
+	protected void setOwner(Player owner){
 		this.owner = owner; 
 	}
 
