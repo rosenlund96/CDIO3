@@ -32,8 +32,8 @@ public class LaborCamp extends Ownable {
 			
 		}
 		else if(player.getBalance()< amountToPay){
-			player.withdraw(player.getBalance());
 			owner.deposit(player.getBalance());
+			player.withdraw(player.getBalance());
 			player.setBroke(true);
 			output.showTransferMessageFailed(owner.getName(), amountToPay);
 		}
