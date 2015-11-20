@@ -25,7 +25,7 @@ public class Territory extends Ownable {
 		player.withdraw(rentAmount);
 		owner.deposit(rentAmount);
 		}
-		else if(balance < rent){
+		else if(player.getBalance() < rent){
 			owner.deposit(player.getBalance());
 			player.withdraw(player.getBalance());
 			player.setBalance = 0; 
