@@ -33,6 +33,9 @@ public class Fleet extends Ownable {
 				transferRent(RENT_4, player);
 			}
 		}
+		else if (player == owner) {
+			output.youOwnThisFieldMessage(owner);
+		}
 	}
 
 

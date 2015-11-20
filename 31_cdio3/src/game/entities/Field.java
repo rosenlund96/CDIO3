@@ -21,15 +21,9 @@ public abstract class Field {
 	public FieldType getFieldType(){
 		return fieldType;
 	}
-	
+	//Vil blive kaldt hver gang en spiller lander på et felt. 
 	public abstract void landOnField(Player player);
-		//Vil blive kaldt hver gang en spiller lander på et felt. 
-	
-
-	
-
-	
-	
+		
 	
 	
 }

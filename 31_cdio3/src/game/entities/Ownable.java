@@ -22,10 +22,15 @@ public abstract class Ownable extends Field {
 	@Override
 	public void landOnField(Player player){
 		if(this.owner == null){
-			int balance = player.getBalance();
-			if(balance >= price) {
-				output.promptBuy(player.getName(), price);
+				if(output.promptBuy(player.getName(), price) == true){
+				if (player.getBalance()>price){
 				player.withdraw(price);	
+				setOwner(player);
+					output.showFieldBoughtMessage();
+				}
+				else{
+					output.showNotBoughtMessage();
+				}
 			}
 			else {
 				output.showNotEnoughBalanceMessage(player);
