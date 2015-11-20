@@ -6,8 +6,8 @@ package game.util;
  *******************************************/
 public class DieCup implements Rollable{
 
-	private static Die die1;
-	private static Die die2;
+	private Die die1;
+	private Die die2;
 
 
 	// Constructors
@@ -41,7 +41,7 @@ public class DieCup implements Rollable{
 	/************************************
 	 * @return the sum of the two dice	*
 	 ***********************************/
-	public static int getSum(){
+	public int getSum(){
 		return die1.getFaceValue() + die2.getFaceValue();
 	}
 
