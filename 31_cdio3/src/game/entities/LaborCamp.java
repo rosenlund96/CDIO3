@@ -34,7 +34,7 @@ public class LaborCamp extends Ownable {
 			owner.deposit(player.getBalance());
 			player.withdraw(player.getBalance());
 			player.setBroke(true);
-			output.showTransferMessageFailed(owner.getName(), amountToPay);
+			output.showBrokeMessage(owner, rent, player.getBalance());
 		}
 	}
 	
