@@ -33,4 +33,8 @@ public interface Outputable {
 	public void promptBuy(String name, int price);
 
 	public void showNotEnoughBalanceMessage(Player player);
+
+	public void showBrokeMessage(Player owner, int rent, int balance);
+
+	public void showLandOnOwnedFieldMessage(int rent, Player owner);
 }

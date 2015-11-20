@@ -50,8 +50,8 @@ public class Player {
 		this.isBroke = isBroke; 
 		//sætter spilleren til bankerot, hvis der ikke er flere knaster. 
 	}
-	public Balance getBalance(){
-		return balance;
+	public int getBalance(){
+		return balance.getBalance();
 	}
 
 }
