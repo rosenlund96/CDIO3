@@ -49,10 +49,9 @@ public class Board {
 	}
 	
 	public void nextTurn(){
-		playersTurn++;
-		if (playersTurn >= players.size()){
-			playersTurn = 0;
-		}
+		
+	
+		
 	}
 	
 	public int getActiveplayerPosition(){

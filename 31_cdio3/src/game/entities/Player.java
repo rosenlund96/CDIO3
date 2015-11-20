@@ -39,16 +39,19 @@ public class Player {
 	}
 
 	public int withdraw(int amount){
-		return balance.withdraw(amount);
+		int withdrawen = balance.withdraw(amount);
+		if(withdrawen < amount)
+			this.setBroke(true);
+		
+		return withdrawen;
 	}
 	
 	public boolean getBroke(){
 		return isBroke; 
 	}
 	
-	public void setBroke(boolean isBroke){
+	private void setBroke(boolean isBroke){
 		this.isBroke = isBroke;
-		//sætter spilleren til bankerot, hvis der ikke er flere knaster. 
 	}
 	public int getBalance(){
 		return balance.getBalance();
