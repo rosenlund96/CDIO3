@@ -1,49 +1,46 @@
 package game.entities;
 
 import game.Boundary.Outputable;
-import game.entities.Field.FieldType;
 import game.util.DieCup;
 
 public class LaborCamp extends Ownable {
 	
 	private int baseRent;
-	private int dieSum;
-
-	public LaborCamp(FieldManager fm, int price, int baseRent, int dieSum, Outputable output ) {
+	private DieCup dices;
+	private int amountPayed;
+	
+	public LaborCamp(FieldManager fm, int price, int baseRent, Outputable output ) {
 		super(fm,price, baseRent, output);
 		this.baseRent = baseRent;
-		this.dieSum = DieCup.getSum();
+		dices = new DieCup();
 	}
 
 	
 	public void landOnField(Player player){
-		dieSum = DieCup.getSum();
-		baseRent = 100; 
+		if (this.owner == null) {
+			super.landOnField(player);
+		}
+		else if (this.owner != player) {
 		int fieldsOwned = fieldManager.getFieldsOwned(player, FieldType.LABOR_CAMP);
-		int amountToPay = dieSum * baseRent * fieldsOwned; 
-		transferRent(amountToPay, player, owner);
-	
-	}
-	
-	public void transferRent(int amountToPay, Player player, Player owner){
-		if(player.getBalance()>amountToPay){
-			player.withdraw(amountToPay);
-			owner.deposit(amountToPay);
+		dices.roll();
+		int amountToPay = dices.getSum() * baseRent * fieldsOwned; 
+		transferRent(amountToPay, player);
+		}
+		else if (this.owner == player) {
+			output.youOwnThisFieldMessage(owner);
 			
 		}
-		else if(player.getBalance()< amountToPay){
-			owner.deposit(player.getBalance());
-			player.withdraw(player.getBalance());
-			player.setBroke(true);
-			output.showBrokeMessage(owner, rent, player.getBalance());
-		}
 	}
-	
-	
+
+	public void transferRent(int amountToPay, Player player){
+		amountPayed = player.withdraw(amountToPay);
+			owner.deposit(amountPayed);
+			output.showLandOnOwnedFieldMessage(amountPayed, owner);
+	}
 	
 	@Override
 	public int getRent() {
-		return 0;
+		return rent;
 	}
 	
 	

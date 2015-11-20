@@ -51,7 +51,7 @@ public class Player {
 	}
 	
 	private void setBroke(boolean isBroke){
-		this.isBroke = isBroke; 
+		this.isBroke = isBroke;
 	}
 	public int getBalance(){
 		return balance.getBalance();
