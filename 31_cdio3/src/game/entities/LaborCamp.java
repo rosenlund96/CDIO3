@@ -7,25 +7,32 @@ import game.util.DieCup;
 public class LaborCamp extends Ownable {
 	
 	private int baseRent;
-	private int dieSum;
-
-	public LaborCamp(FieldManager fm, int price, int baseRent, int dieSum, Outputable output ) {
+	private DieCup dices;
+	
+	public LaborCamp(FieldManager fm, int price, int baseRent, Outputable output ) {
 		super(fm,price, baseRent, output);
 		this.baseRent = baseRent;
-		this.dieSum = DieCup.getSum();
+		dices = new DieCup();
 	}
 
 	
 	public void landOnField(Player player){
-		dieSum = DieCup.getSum();
-		baseRent = 100; 
+		if (this.owner == null) {
+			super.landOnField(player);
+		}
+		else if (this.owner != player) {
 		int fieldsOwned = fieldManager.getFieldsOwned(player, FieldType.LABOR_CAMP);
-		int amountToPay = dieSum * baseRent * fieldsOwned; 
-		transferRent(amountToPay, player, owner);
-	
+		dices.roll();
+		int amountToPay = dices.getSum() * baseRent * fieldsOwned; 
+		transferRent(amountToPay, player);
+		}
+		else if (this.owner == player) {
+			output.youOwnThisFieldMessage(owner);
+			
+		}
 	}
 	
-	public void transferRent(int amountToPay, Player player, Player owner){
+	public void transferRent(int amountToPay, Player player){
 		if(player.getBalance()>amountToPay){
 			player.withdraw(amountToPay);
 			owner.deposit(amountToPay);
@@ -43,7 +50,7 @@ public class LaborCamp extends Ownable {
 	
 	@Override
 	public int getRent() {
-		return 0;
+		return rent;
 	}
 	
 	
