@@ -17,9 +17,12 @@ public class FieldManager {
 	public int getFieldsOwned(Player player, FieldType fieldtype){
 		int count = 0;
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i].getOwner() == player && fields[i].getFieldType() == fieldtype){
-				count ++;		
+			if (fields[i] instanceof Ownable){
+				if (((Ownable)fields[i]).getOwner() == player && fields[i].getFieldType() == fieldtype){
+					count ++;		
+				}
 			}
+			
 		}
 		return count;
 	}
@@ -37,8 +40,6 @@ public class FieldManager {
 		}
 		return value;
 	}
-
-
 
 	private void initializeFields(Outputable gui){
 		fields = new Field[NUMBER_OF_FIELDS];

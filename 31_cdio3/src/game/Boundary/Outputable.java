@@ -18,6 +18,11 @@ public interface Outputable {
 	public void showTransferMessageSucces(Player owner, int amountToPay);
 	//Du er landet på et felt ejet af en anden og skal betale amountToPay, du har ikke nok penge og er gået bankerot
 	public void showTransferMessageFailed(Player owner, int amountToPay);
+	public void showNotEnoughBalanceMessage(Player player);
+	public void showBrokeMessage(Player owner, int rent, int balance);
+	public void showLandOnOwnedFieldMessage(int rent, Player owner);
+	public void showNotBoughtMessage();
+	public void showFieldBoughtMessage();
 	
 	public String promptPlayerName(int playerNumber);
 	public void promptRollDice(String playerName);
@@ -30,11 +35,7 @@ public interface Outputable {
 	
 	public void initializeBoard();
 
-	public void promptBuy(String name, int price);
+	public boolean promptBuy(String name, int price);
 
-	public void showNotEnoughBalanceMessage(Player player);
-
-	public void showBrokeMessage(Player owner, int rent, int balance);
-
-	public void showLandOnOwnedFieldMessage(int rent, Player owner);
+	
 }
