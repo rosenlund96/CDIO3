@@ -1,13 +1,13 @@
 package game.entities;
 
 import game.Boundary.Outputable;
-import game.entities.Field.FieldType;
 import game.util.DieCup;
 
 public class LaborCamp extends Ownable {
 	
 	private int baseRent;
 	private DieCup dices;
+	private int amountPayed;
 	
 	public LaborCamp(FieldManager fm, int price, int baseRent, Outputable output ) {
 		super(fm,price, baseRent, output);
@@ -34,15 +34,16 @@ public class LaborCamp extends Ownable {
 	
 	public void transferRent(int amountToPay, Player player){
 		if(player.getBalance()>amountToPay){
-			player.withdraw(amountToPay);
-			owner.deposit(amountToPay);
+		amountPayed = player.withdraw(amountToPay);
+			owner.deposit(amountPayed);
+			output.showLandOnOwnedFieldMessage(amountPayed, owner);
 			
 		}
 		else if(player.getBalance()< amountToPay){
-			owner.deposit(player.getBalance());
-			player.withdraw(player.getBalance());
+			amountPayed = player.withdraw(player.getBalance());
+			owner.deposit(amountPayed);
 			player.setBroke(true);
-			output.showBrokeMessage(owner, rent, player.getBalance());
+			output.showBrokeMessage(owner, amountPayed, player.getBalance());
 		}
 	}
 	
