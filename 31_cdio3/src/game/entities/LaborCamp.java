@@ -18,7 +18,7 @@ public class LaborCamp extends Ownable {
 	public void landOnField(Player player){
 		dieSum = DieCup.getSum();
 		baseRent = 100; 
-		int fieldsOwned = FieldManager.getFieldsOwned(owner.getName(), fieldType.LABOR_CAMP);
+		int fieldsOwned = FieldManager.getFieldsOwned(owner.getName(), FieldType.LABOR_CAMP);
 		int amountToPay = dieSum * baseRent * fieldsOwned; 
 		transferRent(amountToPay, player, owner);
 	
@@ -28,7 +28,6 @@ public class LaborCamp extends Ownable {
 		if(player.getBalance()>amountToPay){
 			player.withdraw(amountToPay);
 			owner.deposit(amountToPay);
-			output.showTransferMessageSucces(owner.getName(), amountToPay);
 			
 		}
 		else if(player.getBalance()< amountToPay){
