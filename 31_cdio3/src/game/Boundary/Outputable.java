@@ -1,3 +1,4 @@
+
 package game.Boundary;
 
 import game.entities.Player;
@@ -38,6 +39,8 @@ public interface Outputable {
 	public boolean promptBuy(String name, int price);
 
 	public void youOwnThisFieldMessage(Player owner);
+
+	public void showLandOnOwnedFleetMessage(int amount, Player owner, Player player);
 
 	
 }
