@@ -22,6 +22,7 @@ public class Territory extends Ownable {
 		if (player.getBalance()>=rent) {
 		player.withdraw(rentAmount);
 		owner.deposit(rentAmount);
+		output.showLandOnOwnedFieldMessage(rentAmount, owner);
 		}
 		else if(player.getBalance() < rent){
 			owner.deposit(player.getBalance());
