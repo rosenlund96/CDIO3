@@ -14,6 +14,10 @@ public abstract class Ownable extends Field {
 		this.rent = rent; 
 	}
 	
+	public int getPrice(){
+		return price;
+	}
+	
 	@Override
 	public void landOnField(Player player){
 		//Hvis feltet er ledigt
@@ -37,6 +41,7 @@ public abstract class Ownable extends Field {
 	public Player getOwner(){
 		return owner; 
 	}
+	
 	
 	// fuck det her pis
 	public abstract int getRent();
