@@ -40,5 +40,7 @@ public interface Outputable {
 
 	public void youOwnThisFieldMessage(Player owner);
 
+	public void showLandOnOwnedFleetMessage(int amount, Player owner, Player player);
+
 	
 }

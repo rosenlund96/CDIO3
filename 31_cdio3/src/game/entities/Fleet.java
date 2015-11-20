@@ -1,6 +1,6 @@
 package game.entities;
 
-import game.boundaries.Outputable;
+import game.Boundary.Outputable;
 
 public class Fleet extends Ownable {
 
