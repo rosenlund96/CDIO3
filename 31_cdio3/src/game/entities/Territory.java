@@ -16,34 +16,23 @@ public class Territory extends Ownable {
 		int balance = player.getBalance();
 		if(balance >= rent)
 		output.showLandOnOwnedFieldMessage(rent, owner);	
-		owner.deposit(player.withdraw(rent));
+		transferRent(rent, player, owner);
+		}
+		
+	
+	public void transferRent(int rentAmount, Player player, Player owner){
+		if (player.getBalance()>=rent) {
+		player.withdraw(rentAmount);
+		owner.deposit(rentAmount);
+		}
 		else if(balance < rent){
 			depositRent(balance); 
 			player.setBalance = 0; 
 			player.setBroke(true);
 			output.showBrokeMessage(owner, rent, balance);
-		}
-		}
-	
-	public void transferRent(int rentAmount, Player player, Player owner){
-		player.withdraw(rentAmount);
-		owner.deposit(rentAmount);
 	}
 		
-	private void withdrawRent (int rentAmount, Player player) {
-		player.withdraw(rentAmount);
-	}
 	
-	private void depositRent (int rentAmount) {
-		owner.deposit(rentAmount);
-		
-	}
-	
-	// Skal nok ikke bruges
-//	private void collectRent(int rent, Player player ){
-//		if(player.withdraw(amount) < amount){
-//			player.setBroke(true);
-//		}
 	
 	@Override
 	public int getRent() {
