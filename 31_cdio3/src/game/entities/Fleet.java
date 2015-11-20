@@ -1,6 +1,6 @@
 package game.entities;
 
-import game.Boundary.Outputable;
+import game.boundaries.Outputable;
 
 public class Fleet extends Ownable {
 
@@ -9,8 +9,8 @@ public class Fleet extends Ownable {
 	private static final int RENT_3 = 2000;
 	private static final int RENT_4 = 4000;
 
-	public Fleet(FieldManager fm, int price, int rent, Outputable output) {
-		super(fm, price, rent, output);
+	public Fleet(FieldManager fm, int price, Outputable output) {
+		super(fm, price, 500, output);
 
 	}
 

@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import desktop_codebehind.Car;
 import desktop_resources.GUI;
+import game.entities.Player;
 import game.util.XMLReader;
 
 /**
@@ -100,6 +101,76 @@ public class GUIBoundary implements Outputable{
 	public void initializeBoard() {
 		// TODO Auto-generated method stub
 
+	}
+	@Override
+	public void showWithdrawMessage(String playerName, int amount) {
+		
+		
+	}
+	@Override
+	public void showDepositMessage(String playerName, int bonus) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showTransferMessageSucces(Player owner, int amountToPay) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showTransferMessageFailed(Player owner, int amountToPay) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showNotEnoughBalanceMessage(Player player) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showBrokeMessage(Player owner, int rent, int balance) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showLandOnOwnedFieldMessage(int rent, Player owner) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showNotBoughtMessage() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showFieldBoughtMessage() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public String promptPlayerName(int playerNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public boolean promptTax(String playerName, int taxAmount, int percentAmount) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public boolean promptBuy(String name, int price) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public void youOwnThisFieldMessage(Player owner) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void showLandOnOwnedFleetMessage(int amount, Player owner, Player player) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

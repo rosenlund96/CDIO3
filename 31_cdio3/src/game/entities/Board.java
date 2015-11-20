@@ -2,7 +2,7 @@ package game.entities;
 
 import java.util.ArrayList;
 
-import game.Boundary.Outputable;
+import game.boundaries.Outputable;
 
 public class Board {
 
