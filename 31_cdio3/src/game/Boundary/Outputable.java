@@ -37,5 +37,7 @@ public interface Outputable {
 
 	public boolean promptBuy(String name, int price);
 
+	public void youOwnThisFieldMessage(Player owner);
+
 	
 }
