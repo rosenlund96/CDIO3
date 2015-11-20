@@ -52,7 +52,7 @@ public class Board {
 		playersTurn++;
 		if (playersTurn >= players.size()){
 			playersTurn = 0;
-		}
+		}	
 	}
 	
 	public int getActiveplayerPosition(){

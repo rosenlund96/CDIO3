@@ -27,18 +27,10 @@ public class Territory extends Ownable {
 		}	
 
 	public void transferRent(Player player, Player owner){ // fjern rentamount
-		if (player.getBalance()>=rent) {
 		rentAmount = player.withdraw(rent); // rent amount ind her 
-		owner.deposit(rent);
+		owner.deposit(rentAmount);
 		output.showLandOnOwnedFieldMessage(rentAmount, owner);
 		}
-		else if(player.getBalance() < rent){
-			owner.deposit(player.getBalance());
-			player.withdraw(player.getBalance());
-			player.setBroke(true);
-			output.showBrokeMessage(owner, rent, player.getBalance()); // skal i player klasse
-	}
-	}
 		
 	@Override
 	public int getRent() { // skal returnere rent 
