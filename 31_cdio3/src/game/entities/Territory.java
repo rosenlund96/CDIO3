@@ -11,32 +11,40 @@ public class Territory extends Ownable {
 		super(fm, price, rent, output);
 		this.rent = rent;
 	}	
-	
+	// owner = null
+	// super.landonfield
 	public void landOnField(Player player){
-		if(player.getBalance() >= rent)
+		if (this.owner == null) {
+			super.landOnField(player);
+		}
+		else if (this.owner != player) {
 		output.showLandOnOwnedFieldMessage(rent, owner);	
-		transferRent(rent, player, owner);
+		transferRent(player, owner);
+		}
+		else if (this.owner == player) {
+			output.youOwnThisFieldMessage(owner);
+		}
 		}	
 
-	public void transferRent(int rentAmount, Player player, Player owner){
+	public void transferRent(Player player, Player owner){ // fjern rentamount
 		if (player.getBalance()>=rent) {
-		player.withdraw(rentAmount);
-		owner.deposit(rentAmount);
+		rentAmount = player.withdraw(rent); // rent amount ind her 
+		owner.deposit(rent);
 		output.showLandOnOwnedFieldMessage(rentAmount, owner);
 		}
 		else if(player.getBalance() < rent){
 			owner.deposit(player.getBalance());
 			player.withdraw(player.getBalance());
 			player.setBroke(true);
-			output.showBrokeMessage(owner, rent, player.getBalance());
+			output.showBrokeMessage(owner, rent, player.getBalance()); // skal i player klasse
 	}
 	}
 		
 	
 	
 	@Override
-	public int getRent() {
-		return 0;
+	public int getRent() { // skal reeturnere rent 
+		return rent;
 	}
 
 	@Override 
