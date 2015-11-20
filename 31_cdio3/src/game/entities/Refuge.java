@@ -1,7 +1,6 @@
 package game.entities;
 
 import game.Boundary.Outputable;
-import game.entities.Field.FieldType;
 
 public class Refuge extends Field {
 

@@ -15,8 +15,6 @@ public class Fleet extends Ownable {
 		
 	}
 
-
-
 	@Override
 	public void landOnField (Player player) {
 			int fieldsOwned = fieldManager.getFieldsOwned(player, FieldType.FLEET);
@@ -51,14 +49,9 @@ public class Fleet extends Ownable {
 	}
 	
 	
-	
-	
 	@Override
 	public int getRent() {
 		return 0;
 	}
-
-	
-	
 	
 }

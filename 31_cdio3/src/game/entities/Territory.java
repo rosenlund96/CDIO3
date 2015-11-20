@@ -5,7 +5,6 @@ import game.Boundary.Outputable;
 public class Territory extends Ownable {
 	
 	private int rent;
-	private int rentAmount;
 
 	public Territory(FieldManager fm, int price, int rent, Outputable output) {
 		super(fm, price, rent, output);
