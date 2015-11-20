@@ -31,23 +31,12 @@ public class LaborCamp extends Ownable {
 			
 		}
 	}
-	
+
 	public void transferRent(int amountToPay, Player player){
-		if(player.getBalance()>amountToPay){
 		amountPayed = player.withdraw(amountToPay);
 			owner.deposit(amountPayed);
 			output.showLandOnOwnedFieldMessage(amountPayed, owner);
-			
-		}
-		else if(player.getBalance()< amountToPay){
-			amountPayed = player.withdraw(player.getBalance());
-			owner.deposit(amountPayed);
-			player.setBroke(true);
-			output.showBrokeMessage(owner, amountPayed, player.getBalance());
-		}
 	}
-	
-	
 	
 	@Override
 	public int getRent() {
