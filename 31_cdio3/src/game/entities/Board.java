@@ -8,10 +8,8 @@ public class Board {
 
 	
 	ArrayList<Player> players;
-	Player activePlayer;
-	int numberOfPlayers;
 	FieldManager fm;
-	
+	int playersTurn;
 
 	// Konstruktor
 	public Board(String[] names, int startingBalance, Outputable gui){
@@ -19,11 +17,10 @@ public class Board {
 			players.add(new Player(names[i], startingBalance, i, false));
 		}
 		fm = new FieldManager(gui);
-		numberOfPlayers = names.length;
 	}
 
 	public void moveActivePlayer(int amount ){
-		activePlayer.setPosition((activePlayer.getPosition()+ amount)%fm.getNumberOfFields() );
+		players.get(playersTurn).setPosition((players.get(playersTurn).getPosition()+ amount)%fm.getNumberOfFields() );
 
 	}
 
@@ -31,8 +28,8 @@ public class Board {
 
 	public void findStartingPlayer(){
 
-		int random = ((int)Math.random() * numberOfPlayers);
-		activePlayer = players.get(random);
+		int random = ((int)Math.random() * players.size());
+		playersTurn = random;
 		
 	}
 	// Finds a potential winner
@@ -41,6 +38,7 @@ public class Board {
 		for (int i = 0; i < players.size(); i++) {
 			if (players.get(i).getBroke()){
 				players.remove(i);
+				playersTurn = playersTurn == 0? players.size()-1 : playersTurn-1;
 			}
 		}
 		// If arraylist is only one player long we have a winner
@@ -51,22 +49,25 @@ public class Board {
 	}
 	
 	public void nextTurn(){
-	
-	
-		
+		playersTurn++;
+		if (playersTurn >= players.size()){
+			playersTurn = 0;
+		}
 	}
 	
 	public int getActiveplayerPosition(){
-		return activePlayer.getPosition();
+		return players.get(playersTurn).getPosition();
 
 	}
 
 	public int getActivePlayerBalance(){
-		return activePlayer.getBalance();
+		return players.get(playersTurn).getBalance();
 	}
 	
-	public int getNumberOfPlayers(){
-		return numberOfPlayers;
+	public String getActivePlayerName(){
+		return players.get(playersTurn).getName();
 	}
+	
+	
 
 }
