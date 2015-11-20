@@ -5,6 +5,7 @@ import game.Boundary.Outputable;
 public class Territory extends Ownable {
 	
 	private int rent;
+	private int rentAmount;
 
 	public Territory(FieldManager fm, int price, int rent, Outputable output) {
 		super(fm, price, rent, output);
@@ -39,10 +40,8 @@ public class Territory extends Ownable {
 	}
 	}
 		
-	
-	
 	@Override
-	public int getRent() { // skal reeturnere rent 
+	public int getRent() { // skal returnere rent 
 		return rent;
 	}
 
