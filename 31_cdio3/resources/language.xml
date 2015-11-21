@@ -3,8 +3,15 @@
 	<welcome>Velkommen til spillet, indtast 1-6 navne. Når alle navne er indtastet, trykkes der ok, uden at indtaste et navn og spillet vil starte</welcome>
 	<promptName>Indtast navn på spiller</promptName>
 	<promptName>Lad feltet være tomt for at starte spillet</promptName>
-	<promptName>Du skal indtaste mindst et navn</promptName>
+	<promptName>Du skal indtaste mindst to navne</promptName>
 	<starting>starter</starting>
 	<roll>Kast Terningerne</roll>
 	<winner>har vundet spillet. Ønskes omspil?</winner>
+	<withdraw>Der bliver trukket</withdraw>
+	<withdraw>fra din konto.</withdraw>
+	<deposit>Der bliver sat</deposit>
+	<deposit>ind på din konto.</deposit>
+	<isOwner>Du ejer selv feltet, og skal ikke betale leje</isOwner>
+	<transfer>Du overføre</transfer>
+	<transfer>til</transfer>
 </strings>
