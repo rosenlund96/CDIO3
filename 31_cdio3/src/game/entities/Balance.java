@@ -16,11 +16,18 @@ public class Balance {
 		this.balance += amount;
 	}
 
+	/**
+	 * return as much as possible of the asked amount.
+	 * If balance is less than amount, we return all of the  balance
+	 * @param amount to be withdrawen
+	 * @return return amount withdrawen from balance
+	 */
 	public int withdraw(int amount){
 		if (amount <= balance){
 			balance -= amount;
 		}
 		else{
+			
 			amount = balance;
 			balance = 0;
 		}
@@ -33,7 +40,7 @@ public class Balance {
 		return balance;
 	}
 
-	public void setBalance(int balance){
+	private void setBalance(int balance){
 		this.balance = balance;
 	}
 

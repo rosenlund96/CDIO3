@@ -5,7 +5,7 @@ public class Player {
 
 	// Attributes
 
-	private int position = 0;
+	private int position;
 	private String name;
 	private Balance balance;
 	private boolean isBroke; 
@@ -35,11 +35,12 @@ public class Player {
 
 	public void deposit(int amount){
 		balance.deposit(amount);
-
 	}
 
 	public int withdraw(int amount){
 		int withdrawen = balance.withdraw(amount);
+		
+		// if withdrawen amount is less than asked for. player must be broke
 		if(withdrawen < amount)
 			this.setBroke(true);
 		
@@ -53,6 +54,7 @@ public class Player {
 	private void setBroke(boolean isBroke){
 		this.isBroke = isBroke;
 	}
+	
 	public int getBalance(){
 		return balance.getBalance();
 	}
