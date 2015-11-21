@@ -1,11 +1,14 @@
 package game;
 
-import game.boundaries.GUIBoundary;
-import game.boundaries.Outputable;
+import game.controllers.GameController;
 
 public class App {
 	public static void main(String[] args){
-		Outputable output = new GUIBoundary("resources/language.xml");
+		
+		// instantiate GameControlelr and starts game.
+		GameController game = new GameController();
+		game.run();
+		
 		
 	}
 }
