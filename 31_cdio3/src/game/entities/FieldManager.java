@@ -1,7 +1,14 @@
 package game.entities;
 
 import game.boundaries.Outputable;
-import game.entities.Field.FieldType;
+import game.entities.fields.Field;
+import game.entities.fields.Fleet;
+import game.entities.fields.LaborCamp;
+import game.entities.fields.Ownable;
+import game.entities.fields.Refuge;
+import game.entities.fields.Tax;
+import game.entities.fields.Territory;
+import game.entities.fields.Field.FieldType;
 import game.resources.FieldData;
 
 public class FieldManager {
