@@ -4,7 +4,29 @@ import game.entities.fields.Field;
 import game.entities.fields.Field.FieldType;
 
 public class FieldData {
-	
+	public static final String[] FIELDNAME_DATA = {
+		"tribeEncampment",
+		"crater",
+		"mountain",
+		"secondSail",
+		"walledCity",
+		"goldmine",
+		"coldDesert",
+		"blackCave",
+		"theWerewall",
+		"seaGrover",
+		"hutsInTheMountain",
+		"mountainVillage",
+		"southCitadel",
+		"palaceGates",
+		"theBuccaneers",
+		"caravan",
+		"monastery",
+		"thePit",
+		"tower",
+		"castle",
+		"privateerArmade"
+	};
 	public static final int[] FIELDRENT_DATA = {
 			100, 300, 500, 500, 5000, 2000, 700, 1000, 1300, 500,
 			100, 1600, 2000, 2600, 500, 4000, 500, 100, 3200, 4000,
