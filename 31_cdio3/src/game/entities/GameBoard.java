@@ -12,10 +12,10 @@ public class GameBoard {
 
 	// Constructors
 	public GameBoard(ArrayList<String> names, int startingBalance, Outputable gui){
-		
+
 		players =  new ArrayList<Player>();
 		fieldManager = new FieldManager(gui);
-		
+
 		for (int i = 0; i < names.size(); i++) {
 			players.add(new Player(names.get(i), startingBalance, i, false));
 		}
@@ -33,31 +33,37 @@ public class GameBoard {
 
 		int random = ((int)Math.random() * players.size());
 		playerTurn = random;
-		
+
 	}
 	// Finds a potential winner
 	public boolean getWinner(){
 		// Updates players arraylist 
-		for (int i = 0; i < players.size(); i++) {
-			if (players.get(i).getBroke()){
-				players.remove(i);
-				playerTurn = playerTurn == 0? players.size()-1 : playerTurn-1;
-			}
-		}
+
 		// If arraylist is only one player long we have a winner
 		if (players.size() == 1){
 			return true;
 		}
 		return false;
 	}
-	
+
+	public String isActivePlayerBroke(){
+		String playerName = null;
+		if (players.get(playerTurn).getBroke()){
+			playerName = players.get(playerTurn).getName();
+			players.remove(playerTurn);
+			playerTurn = playerTurn == 0? players.size()-1 : playerTurn-1;
+		}
+
+		return playerName;
+	}
+
 	public void nextTurn(){
 		playerTurn++;
 		if (playerTurn >= players.size()){
 			playerTurn = 0;
 		}	
 	}
-	
+
 	public int getActivePlayerPosition(){
 		return players.get(playerTurn).getPosition();
 
@@ -66,11 +72,11 @@ public class GameBoard {
 	public int getActivePlayerBalance(){
 		return players.get(playerTurn).getBalance();
 	}
-	
+
 	public String getActivePlayerName(){
 		return players.get(playerTurn).getName();
 	}
-	
-	
+
+
 
 }

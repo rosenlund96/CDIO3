@@ -109,16 +109,27 @@ public class GameController {
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 
+			
+			// Check if active player is broke
+			String name =board.isActivePlayerBroke();
+			if(name != null){
+				output.showBrokeMessage(name);
+			}
+			
+			turnNumber++;
+			
+			// Changes turn
+			board.nextTurn();
+			
 			// Check to see if we have a winner
 			if (board.getWinner()){
 				state = GameState.WIN_STATE;
 				return;
 			}
 			
-			turnNumber++;
+			
 
-			// Changes turn
-			board.nextTurn();
+			
 		}
 	}
 

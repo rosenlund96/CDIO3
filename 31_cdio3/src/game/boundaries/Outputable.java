@@ -19,7 +19,7 @@ public interface Outputable {
 	public void showTransferMessage(String playerName, String ownerName, int amount);
 	//Du er landet på et felt ejet af en anden og skal betale amountToPay, du har ikke nok penge og er gået bankerot
 	public void showNotEnoughBalanceMessage(Player player);
-	public void showBrokeMessage(Player owner, int rent, int balance);
+	public void showBrokeMessage(String playerName);
 	public void showLandOnOwnedFieldMessage(int rent, Player player,Player owner);
 	public void showNotBoughtMessage();
 	public void showFieldBoughtMessage();
