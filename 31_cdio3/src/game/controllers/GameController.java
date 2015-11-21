@@ -24,9 +24,10 @@ public class GameController {
 
 	public GameController(){
 
-		output = new GUIBoundary("language.xml");
-
+		output = new GUIBoundary("resources/language.xml");
+	
 		dieCup = new DieCup();	
+		names = new ArrayList<String>();
 	}
 
 	/*********************************************
@@ -59,18 +60,20 @@ public class GameController {
 			boolean error = false;
 			// Checks if names are long enough and saves them in array
 			while (true){
-				String str = output.promptPlayerName(i+1, error);
-				if (str.length() == 0){
-					if(i>0)
+				String name = output.promptPlayerName(i+1, error);
+				if (name.length() == 0){
+					if(i>=2){
 						// break loop (no more players)
+						i = 6;
 						break;
+					}
 					else
 						error = true;
 				}
 				else{
-					names.add(str);
+					names.add(name);
 					// Add player to gui
-					output.addPlayer(str, STARTING_BALANCE, i);
+					output.addPlayer(name, STARTING_BALANCE, i);
 					break;
 				}				
 			}	
@@ -102,10 +105,9 @@ public class GameController {
 
 			// Moves the active player on the board
 			board.moveActivePlayer(dieCup.roll());
-			// Updates the GUI
 
-			output.updateGui(dieCup.getDice(), board.getActivePlayerPosition(),
-					board.getActivePlayerBalance(), board.getActivePlayerName()  );
+			// Updates the GUI
+			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 
 			// Check to see if we have a winner
 			if (board.getWinner()){
@@ -138,6 +140,6 @@ public class GameController {
 	}
 	
 	private void initBoard(){
-		board = new GameBoard(names, STARTING_BALANCE);
+		board = new GameBoard(names,STARTING_BALANCE, output);
 	}
 }
