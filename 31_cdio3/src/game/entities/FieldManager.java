@@ -20,6 +20,12 @@ public class FieldManager {
 		initializeFields(gui);
 
 	}
+	
+	public void landOnFieldByNumber(Player player, int fieldNumber){
+		fields[fieldNumber].landOnField(player);
+	}
+	
+	
 	// Is used to find the number of specific fieldtypes a player owns.
 	public int getFieldsOwned(Player player, FieldType fieldtype){
 		int count = 0;
@@ -32,6 +38,16 @@ public class FieldManager {
 
 		}
 		return count;
+	}
+	
+	public int getFieldNumber(Field field){
+		int number  = 0;
+		for(int i = 0; i < NUMBER_OF_FIELDS; i++){
+			if(field == fields[i])
+				number = i;
+		}
+		return number;
+	
 	}
 	// Is used to calculate the tax value of all owned fields.
 	public int getFieldsValue(Player player){
@@ -60,7 +76,7 @@ public class FieldManager {
 				fields[i] = new LaborCamp(this, FieldData.FIELDBUYPRICE_DATA[i], FieldData.FIELDRENT_DATA[i], gui);
 				break;
 			case FLEET: 
-				fields[i] = new Fleet(this, FieldData.FIELDRENT_DATA[i], gui);
+				fields[i] = new Fleet(this, FieldData.FIELDBUYPRICE_DATA[i], gui);
 				break;
 			case TAX: 
 				fields[i] = new Tax(this, FieldData.FIELDRENT_DATA[i], gui);
@@ -72,6 +88,14 @@ public class FieldManager {
 		}	
 	}
 
+	public void freeFields(Player player){
+		for(Field f: fields){
+			if(f instanceof Ownable){
+				if(((Ownable)f).getOwner() == player)
+					((Ownable)f).clearOwner();
+			}
+		}
+	}
 	public int getNumberOfFields(){
 		return NUMBER_OF_FIELDS;
 	}

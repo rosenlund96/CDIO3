@@ -30,6 +30,7 @@ public class LaborCamp extends Ownable {
 			output.showRollingDiceForRent(player.getName());
 			
 			int amountToPay = dices.roll() * rent * fieldsOwned; 
+			output.setDice(dices.getDice());
 			transferRent(amountToPay, player);
 		}
 		// checks if the player is the owner

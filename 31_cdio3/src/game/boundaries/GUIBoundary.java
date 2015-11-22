@@ -3,8 +3,16 @@ package game.boundaries;
 import java.awt.Color;
 
 import desktop_codebehind.Car;
+import desktop_fields.Brewery;
+import desktop_fields.Empty;
+import desktop_fields.Field;
+import desktop_fields.Refuge;
+import desktop_fields.Shipping;
+import desktop_fields.Street;
+import desktop_fields.Tax;
 import desktop_resources.GUI;
 import game.entities.Player;
+import game.resources.FieldData;
 import game.util.XMLReader;
 
 /**
@@ -14,10 +22,15 @@ public class GUIBoundary implements Outputable{
 	
 	// Fields
 	XMLReader reader;
-
+	Field[] fields;
+	
+	
 	// Constructors
 	public GUIBoundary(String langFilePath){
-		reader = new XMLReader(langFilePath);
+		this.reader = new XMLReader(langFilePath);
+		this.fields = new Field[FieldData.FIELDNAME_DATA.length];
+		this.initializeBoard();
+
 	}
 	
 	
@@ -38,7 +51,17 @@ public class GUIBoundary implements Outputable{
 		// Removing players current car
 		GUI.removeAllCars(playerName);
 		// Adding player car at updated position
-		GUI.setCar(pos, playerName);
+		GUI.setCar(pos+1, playerName);
+		
+
+		
+	}
+	
+	@Override
+	public void showUpdateMessage(String playerName, int pos){
+		String s1  = reader.getElement("positionUpdate", 0);
+		String msg = playerName + ": " + s1 + " " + (pos+1);
+		GUI.showMessage(msg);
 	}
 
 	@Override
@@ -79,10 +102,11 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void promptRollDice(String playerName) {
-		String s1 = reader.getElement("roll", 0);
+		String s1 = reader.getElement("rollDice", 0);
+		String btnRoll = reader.getElement("roll", 0);
 		
 		String msg = playerName + ". " + s1;
-		GUI.showMessage(msg);
+		GUI.getUserButtonPressed(msg, btnRoll);
 	}
 
 	/************************************************************************
@@ -99,12 +123,46 @@ public class GUIBoundary implements Outputable{
 				.primaryColor(colors[playerNumber])
 				.secondaryColor(colors[5-playerNumber]).build();
 		GUI.addPlayer(playerName, balance, car);
+		GUI.setCar(1, playerName);
 
 	}
 
 	@Override
 	public void initializeBoard() {
-		// TODO Auto-generated method stub
+		
+		for(int i = 0; i < FieldData.FIELDNAME_DATA.length; i++){
+			switch(FieldData.FIELDTYPE_DATA[i]){
+			case REFUGE:
+				fields[i] = new Refuge.Builder().build();
+				fields[i].setDescription(reader.getElement("get", 0) + " " + FieldData.FIELDRENT_DATA[i]);
+				break;
+			case TAX:
+				fields[i] = new Tax.Builder().build();
+				fields[i].setDescription(reader.getElement("pay", 0) + " " + FieldData.FIELDRENT_DATA[i]);
+				break;
+			case TERRITORY:
+				fields[i] = new Street.Builder().build();
+				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
+						", " + reader.getElement("territory", 0) + " " +FieldData.FIELDRENT_DATA[i]);
+				break;
+			case LABOR_CAMP:
+				fields[i] = new Brewery.Builder().build();
+				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
+						", " + reader.getElement("laborCamp", 0));
+				break;
+			case FLEET:
+				fields[i] = new Shipping.Builder().build();
+				fields[i].setDescription(reader.getElement("ownable", 0) + " " + FieldData.FIELDBUYPRICE_DATA[i] +
+						", " + reader.getElement("fleet", 0));
+				break;
+			}
+			
+			
+			fields[i].setTitle(String.valueOf(i+1));
+			fields[i].setSubText(reader.getElement(FieldData.FIELDNAME_DATA[i], 0));
+			
+		}
+		GUI.create(fields);
 	
 	}
 	// Message used when money is taken from player
@@ -129,15 +187,14 @@ public class GUIBoundary implements Outputable{
 	
 
 	@Override
-	public void showNotEnoughBalanceMessage(Player player) {
-		// TODO Auto-generated method stub
+	public void showNotEnoughBalanceMessage(String playerName) {
+		String s1 = reader.getElement("lowBalance", 0);
 		
+		String msg = playerName + ": " + s1;
+		GUI.showMessage(msg);
 	}
-	@Override
-	public void showBrokeMessage(Player owner, int rent, int balance) {
-		// TODO Auto-generated method stub
-		
-	}
+
+	
 	@Override
 	public void showTransferMessage(String playerName, String ownerName, int amount) {
 		String s1 = reader.getElement("transfer", 0);
@@ -147,26 +204,48 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 	}
 	@Override
-	public void showNotBoughtMessage() {
-		// TODO Auto-generated method stub
+	public void showNotBoughtMessage(String playerName) {
+		String s1 = reader.getElement("declinedBuy", 0);
+		
+		String msg = playerName + ": " + s1;
+		GUI.showMessage(msg);
 		
 	}
 	@Override
-	public void showFieldBoughtMessage() {
-		// TODO Auto-generated method stub
+	public void showFieldBoughtMessage(String playerName, int fieldNumber) {
+		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1) + " (" + playerName + ")");
+		String s1 = reader.getElement("acceptedBuy", 0);
 		
+		String msg = playerName + ": " + s1;
+		
+		GUI.showMessage(msg);
 	}
 
 	@Override
 	public boolean promptTax(String playerName, int taxAmount, int percentAmount) {
-		// TODO Auto-generated method stub
+		String s1 = reader.getElement("taxChoice", 0);
+		String s2 = reader.getElement("taxChoice", 1);
+		
+		String msg = playerName + ": " + s1 + "(" + percentAmount + ")" + s2 + " " + taxAmount;
+		String btnPercent = reader.getElement("taxButton", 0) + "(" + percentAmount + ")";
+		String btnTaxAmount = String.valueOf(taxAmount);
+		String result = GUI.getUserButtonPressed(msg, btnPercent, btnTaxAmount);
+		
+		if(result.equals(btnPercent))
+			return true;
+		
 		return false;
 	}
 	@Override
-	public boolean promptBuy(String name, int price) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean promptBuy(String playerName, int price) {
+		String s1 = reader.getElement("buy", 0);
+		String yes = reader.getElement("yes", 0);
+		String no = reader.getElement("no", 0);
+		
+		String msg = playerName + ": " + s1 + " " + price;
+		return GUI.getUserLeftButtonPressed(msg, yes, no);
 	}
+	
 	@Override
 	public void showPlayerIsOwner(String playerName) {
 		String s1 = reader.getElement("isOwner", 0);
@@ -175,24 +254,38 @@ public class GUIBoundary implements Outputable{
 		GUI.showMessage(msg);
 		
 	}
+
 	@Override
-	public void showLandOnOwnedFleetMessage(int amount, Player owner, Player player) {
-		// TODO Auto-generated method stub
+	public void setDice(int[] dice){
+		GUI.setDice(dice[0], dice[1]);
+	}
+	@Override
+	public void showRollingDiceForRent(String playerName) {
+		String s1 = reader.getElement("rollForRent", 0);
+		String btnRoll = reader.getElement("roll", 0);
+		String msg = playerName + ": " + s1;
+		GUI.getUserButtonPressed(msg, btnRoll);
 		
 	}
 
 
 	@Override
-	public void showLandOnOwnedFieldMessage(int rent, Player player, Player owner) {
-		// TODO Auto-generated method stub
+	public void showBrokeMessage(String playerName) {
+		String s1 = reader.getElement("broke", 0);
 		
+		String msg = playerName + ": " + s1;
+		GUI.showMessage(msg);
 	}
-
-
+	
 	@Override
-	public void showRollingDiceForRent(String playeName) {
-		// TODO Auto-generated method stub
-		
+	public void removeOwner(int fieldNumber){
+		fields[fieldNumber].setTitle(String.valueOf(fieldNumber+1));
 	}
-
+	
+	@Override
+	public void removeAllOwners(){
+		for(int i = 0; i < fields.length;i++){
+			fields[i].setTitle(String.valueOf(i+1));
+		}
+	}
 }

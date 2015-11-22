@@ -32,14 +32,14 @@ public abstract class Ownable extends Field {
 				if(output.promptBuy(player.getName(), price)){
 					player.withdraw(price);	
 					owner = player;
-					output.showFieldBoughtMessage();
+					output.showFieldBoughtMessage(player.getName(), fieldManager.getFieldNumber(this));
 
 				}else
 					// Display info telling player declined buy
-					output.showNotBoughtMessage();
+					output.showNotBoughtMessage(player.getName());
 			}else
 				// displays info telling player haven't got money enough
-				output.showNotEnoughBalanceMessage(player);
+				output.showNotEnoughBalanceMessage(player.getName());
 		}
 
 	}
@@ -50,6 +50,11 @@ public abstract class Ownable extends Field {
 	
 	public Player getOwner(){
 		return owner; 
+	}
+	
+	public void clearOwner(){
+		output.removeOwner(fieldManager.getFieldNumber(this));
+		owner = null;
 	}
 
 }

@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public class Territory extends Ownable {
 
-	private int rent;
+
 
 	public Territory(FieldManager fieldManager, int price, int rent, Outputable output) {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output);

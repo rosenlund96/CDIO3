@@ -9,7 +9,7 @@ import game.util.Rollable;
 
 public class GameController {
 
-	private final int STARTING_BALANCE = 1000;
+	private final int STARTING_BALANCE = 30000;
 
 	public enum GameState {NAME_STATE , PLAY_STATE, WIN_STATE};
 
@@ -108,12 +108,17 @@ public class GameController {
 
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
-
+			output.showUpdateMessage(board.getActivePlayerName(),  board.getActivePlayerPosition());
+			board.ActivePlayerFieldAction();
+			
+			// Update GUI again.
+			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			
 			// Check if active player is broke
 			String name =board.isActivePlayerBroke();
 			if(name != null){
 				output.showBrokeMessage(name);
+				
 			}
 			
 			turnNumber++;
@@ -152,5 +157,7 @@ public class GameController {
 	
 	private void initBoard(){
 		board = new GameBoard(names,STARTING_BALANCE, output);
+		output.removeAllOwners();
+		
 	}
 }

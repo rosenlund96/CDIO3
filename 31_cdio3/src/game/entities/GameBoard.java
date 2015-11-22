@@ -17,14 +17,18 @@ public class GameBoard {
 		fieldManager = new FieldManager(gui);
 
 		for (int i = 0; i < names.size(); i++) {
-			players.add(new Player(names.get(i), startingBalance, i, false));
+			players.add(new Player(names.get(i), startingBalance, 0, false));
 		}
 		fieldManager = new FieldManager(gui);
 	}
 
 	public void moveActivePlayer(int amount ){
-		players.get(playerTurn).setPosition(((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields())-1 );
+		players.get(playerTurn).setPosition(((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields()));
+		
 
+	}
+	public void ActivePlayerFieldAction(){
+		fieldManager.landOnFieldByNumber(players.get(playerTurn), players.get(playerTurn).getPosition());
 	}
 
 	// Resolves starting player
@@ -50,8 +54,10 @@ public class GameBoard {
 		String playerName = null;
 		if (players.get(playerTurn).getBroke()){
 			playerName = players.get(playerTurn).getName();
+			fieldManager.freeFields(players.get(playerTurn));
 			players.remove(playerTurn);
 			playerTurn = playerTurn == 0? players.size()-1 : playerTurn-1;
+			
 		}
 
 		return playerName;
