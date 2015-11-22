@@ -15,7 +15,7 @@ public class LaborCamp extends Ownable {
 		dices = new DieCup();
 	}
 	
-	 
+	@Override
 	public void landOnField(Player player){
 		
 		// checks if the field is owned
@@ -42,7 +42,7 @@ public class LaborCamp extends Ownable {
 	
 	
 	// method to transfer money from the player to the owner of the field
-	public void transferRent(int amountToPay, Player player){
+	private void transferRent(int amountToPay, Player player){
 		// withdraws the due rent or the rest of the players balance if he/she can't afford it 
 		int withdrawAmount = player.withdraw(amountToPay);
 		// deposits the withdrawed money

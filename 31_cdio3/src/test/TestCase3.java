@@ -37,7 +37,7 @@ public class TestCase3 {
 		assertEquals("Player startin balance incorrect", 2000, player.getBalance());
 		assertEquals("Owner startin balance incorrect", 5000, owner.getBalance());
 		assertEquals("Territory price incorrect ater setup", 2500, t.getPrice());
-		assertEquals("Territory rent incorrectr after setup", 2500, t.getRent());
+		assertEquals("Territory rent incorrect after setup", 2500, t.getRent());
 
 		// Act
 

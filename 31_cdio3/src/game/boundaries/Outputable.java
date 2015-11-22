@@ -11,6 +11,14 @@ public interface Outputable {
 	
 	public void update(int[] dice, int pos, int balance, String playerName);
 
+	public void addPlayer(String playerName, int balance, int playerNo);
+
+	public void setDice(int[] dice);
+
+	public void removeAllOwners();
+
+	public void removeOwner(int fieldNumber);
+
 	public void showUpdateMessage(String playerName, int pos);
 	public void showWelcome();
 	public void showStartingPlayer(String playerName);
@@ -30,11 +38,7 @@ public interface Outputable {
 	public boolean promptTax(String playerName, int taxAmount, int percentAmount);
 	public boolean promptBuy(String name, int price);
 	
-	public void setDice(int[] dice);
-	public void addPlayer(String playerName, int balance, int playerNo);
-	public void removeAllOwners();
 	public void initializeBoard();
-	public void removeOwner(int fieldNumber);
 
 
 

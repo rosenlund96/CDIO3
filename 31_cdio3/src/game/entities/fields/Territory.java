@@ -12,14 +12,14 @@ public class Territory extends Ownable {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output);
 	}	
 
-
+	@Override
 	public void landOnField(Player player){
 
 		// If owner is null, call Ownable.landonfield for option to buy the field
 		if (this.owner == null) {
 			super.landOnField(player);
 		}
-		
+
 		else if (this.owner != player) 
 		{	// if player is not owner. player pay rent logic
 			transferRent(player);
@@ -28,17 +28,15 @@ public class Territory extends Ownable {
 			output.showPlayerIsOwner(player.getName());
 	}
 
-
-
-		public void transferRent(Player player){
-			int withdrawAmount = player.withdraw(rent);
-			owner.deposit(withdrawAmount);
-			output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
-		}
-
-		@Override 
-		public Player getOwner() {
-			return owner;
-		}
-
+	@Override 
+	public Player getOwner() {
+		return owner;
 	}
+
+	private void transferRent(Player player){
+		int withdrawAmount = player.withdraw(rent);
+		owner.deposit(withdrawAmount);
+		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
+	}
+
+}

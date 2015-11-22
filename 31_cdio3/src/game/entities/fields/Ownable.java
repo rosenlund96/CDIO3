@@ -17,6 +17,18 @@ public abstract class Ownable extends Field {
 		this.owner = null;
 	}
 
+	public int getPrice(){
+		return price;
+	}
+
+	public Player getOwner(){
+		return owner; 
+	}
+
+	public int getRent(){
+		return rent;
+	}
+
 	/****************************************************************************
 	 * Function can only be called by an inheriting class						*
 	 * If Field has no owner. Player can buy the field if he has enough money	*
@@ -44,18 +56,6 @@ public abstract class Ownable extends Field {
 
 	}
 
-	public int getPrice(){
-		return price;
-	}
-	
-	public Player getOwner(){
-		return owner; 
-	}
-	
-	public int getRent(){
-		return rent;
-	}
-	
 	public void clearOwner(){
 		output.removeOwner(fieldManager.getFieldNumber(this));
 		owner = null;

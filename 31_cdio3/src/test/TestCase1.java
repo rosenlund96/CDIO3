@@ -32,7 +32,7 @@ public class TestCase1 {
 		refuge = new Refuge(fm, 0, output);
 
 		assertEquals("Player startin balance incorrect", 5000, player.getBalance());
-		assertEquals("Refuge bonus incorrect ater setup", 0, refuge.getBonus());
+		assertEquals("Refuge bonus incorrect after setup", 0, refuge.getBonus());
 
 		// act
 		refuge.landOnField(player);

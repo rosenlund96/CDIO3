@@ -12,6 +12,12 @@ public class Balance {
 		this.balance = startingBalance;
 	}
 
+	// Mutators
+	
+	public int getBalance(){
+		return balance;
+	}
+
 	public void deposit(int amount){
 		this.balance += amount;
 	}
@@ -35,13 +41,5 @@ public class Balance {
 	}
 
 	// Mutators
-
-	public int getBalance(){
-		return balance;
-	}
-
-	private void setBalance(int balance){
-		this.balance = balance;
-	}
 
 }

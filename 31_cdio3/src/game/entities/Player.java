@@ -33,6 +33,18 @@ public class Player {
 		this.position = position;		
 	}
 
+	public boolean getBroke(){
+		return isBroke; 
+	}
+
+	private void setBroke(boolean isBroke){
+		this.isBroke = isBroke;
+	}
+
+	public int getBalance(){
+		return balance.getBalance();
+	}
+
 	public void deposit(int amount){
 		balance.deposit(amount);
 	}
@@ -45,18 +57,6 @@ public class Player {
 			this.setBroke(true);
 		
 		return withdrawen;
-	}
-	
-	public boolean getBroke(){
-		return isBroke; 
-	}
-	
-	private void setBroke(boolean isBroke){
-		this.isBroke = isBroke;
-	}
-	
-	public int getBalance(){
-		return balance.getBalance();
 	}
 
 }

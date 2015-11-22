@@ -6,9 +6,9 @@ import game.boundaries.Outputable;
 
 public class GameBoard {
 
-	ArrayList<Player> players;
-	FieldManager fieldManager;
-	int playerTurn;
+	private ArrayList<Player> players;
+	private FieldManager fieldManager;
+	private int playerTurn;
 
 	// Constructors
 	public GameBoard(ArrayList<String> names, int startingBalance, Outputable gui){
@@ -22,27 +22,23 @@ public class GameBoard {
 		fieldManager = new FieldManager(gui);
 	}
 
-	public void moveActivePlayer(int amount ){
-		players.get(playerTurn).setPosition(((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields()));
-		
-
-	}
-	public void ActivePlayerFieldAction(){
-		fieldManager.landOnFieldByNumber(players.get(playerTurn), players.get(playerTurn).getPosition());
+	public int getActivePlayerPosition(){
+		return players.get(playerTurn).getPosition();
+	
 	}
 
-	// Resolves starting player
-
-	public void findStartingPlayer(){
-
-		int random = ((int)Math.random() * players.size());
-		playerTurn = random;
-
+	public int getActivePlayerBalance(){
+		return players.get(playerTurn).getBalance();
 	}
+
+	public String getActivePlayerName(){
+		return players.get(playerTurn).getName();
+	}
+
 	// Finds a potential winner
 	public boolean getWinner(){
 		// Updates players arraylist 
-
+	
 		// If arraylist is only one player long we have a winner
 		if (players.size() == 1){
 			return true;
@@ -50,6 +46,22 @@ public class GameBoard {
 		return false;
 	}
 
+	public void moveActivePlayer(int amount ){
+		players.get(playerTurn).setPosition(((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields()));
+		
+
+	}
+	public void activePlayerFieldAction(){
+		fieldManager.landOnFieldByNumber(players.get(playerTurn), players.get(playerTurn).getPosition());
+	}
+
+	// Resolves starting player
+	public void findStartingPlayer(){
+
+		int random = ((int)Math.random() * players.size());
+		playerTurn = random;
+
+	}
 	public String isActivePlayerBroke(){
 		String playerName = null;
 		if (players.get(playerTurn).getBroke()){
@@ -68,19 +80,6 @@ public class GameBoard {
 		if (playerTurn >= players.size()){
 			playerTurn = 0;
 		}	
-	}
-
-	public int getActivePlayerPosition(){
-		return players.get(playerTurn).getPosition();
-
-	}
-
-	public int getActivePlayerBalance(){
-		return players.get(playerTurn).getBalance();
-	}
-
-	public String getActivePlayerName(){
-		return players.get(playerTurn).getName();
 	}
 
 

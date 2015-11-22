@@ -47,7 +47,6 @@ public class GameController {
 		}
 	}
 
-
 	/*********************************************
 	 * Method used to get the players names 	 *
 	 ********************************************/
@@ -82,7 +81,6 @@ public class GameController {
 		// Creates the gameboard
 		initBoard();
 
-
 		// Set state back to play state
 		state = GameState.PLAY_STATE;
 	}
@@ -109,7 +107,7 @@ public class GameController {
 			// Updates the GUI
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
 			output.showUpdateMessage(board.getActivePlayerName(),  board.getActivePlayerPosition());
-			board.ActivePlayerFieldAction();
+			board.activePlayerFieldAction();
 			
 			// Update GUI again.
 			output.update(dieCup.getDice(), board.getActivePlayerPosition(), board.getActivePlayerBalance(), board.getActivePlayerName());
@@ -117,8 +115,7 @@ public class GameController {
 			// Check if active player is broke
 			String name =board.isActivePlayerBroke();
 			if(name != null){
-				output.showBrokeMessage(name);
-				
+				output.showBrokeMessage(name);				
 			}
 			
 			turnNumber++;
@@ -130,14 +127,9 @@ public class GameController {
 			if (board.getWinner()){
 				state = GameState.WIN_STATE;
 				return;
-			}
-			
-			
-
-			
+			}		
 		}
 	}
-
 
 	/************************************
 	 * Method used when winner is found *

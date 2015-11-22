@@ -40,7 +40,7 @@ public class Fleet extends Ownable {
 		}
 	}
 
-	public void transferRent(int rentAmount, Player player){
+	private void transferRent(int rentAmount, Player player){
 		int withdrawAmount = player.withdraw(rentAmount);
 		owner.deposit(withdrawAmount);
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
