@@ -21,4 +21,8 @@ public class Refuge extends Field {
 		// outputs result of deposit
 		output.showDepositMessage(player.getName(), bonus);
 	}
+	
+	public int getBonus(){
+		return bonus;
+	}
 }

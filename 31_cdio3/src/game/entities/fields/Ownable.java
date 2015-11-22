@@ -52,9 +52,14 @@ public abstract class Ownable extends Field {
 		return owner; 
 	}
 	
+	public int getRent(){
+		return rent;
+	}
+	
 	public void clearOwner(){
 		output.removeOwner(fieldManager.getFieldNumber(this));
 		owner = null;
 	}
+	
 
 }
