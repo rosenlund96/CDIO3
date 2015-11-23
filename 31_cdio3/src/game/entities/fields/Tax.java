@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public class Tax extends Field {
 	
-	int taxAmount;
+	private int taxAmount;
 
 	public Tax(FieldManager fieldManager, int taxAmount, Outputable output) {
 		super(fieldManager, FieldType.TAX, output);
