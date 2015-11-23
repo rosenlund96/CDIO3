@@ -70,6 +70,7 @@ public class GUIBoundary implements Outputable{
 	 * @param balance Starting balance of player							*
 	 * @param playerNumber 0-5, otherwise error will occur					*
 	 ***********************************************************************/
+	@Override
 	public void addPlayer(String playerName, int balance, int playerNumber) {
 		Color[] colors = {Color.BLUE, Color.WHITE, Color.MAGENTA, Color.YELLOW, Color.BLACK, Color.GREEN};
 	
