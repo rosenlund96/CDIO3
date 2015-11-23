@@ -2,6 +2,8 @@ package game.entities;
 
 import java.util.ArrayList;
 
+import javax.swing.plaf.synth.SynthStyle;
+
 import game.boundaries.Outputable;
 
 public class GameBoard {
@@ -57,8 +59,9 @@ public class GameBoard {
 
 	// Resolves starting player
 	public void findStartingPlayer(){
-
-		int random = ((int)Math.random() * players.size());
+		System.out.println(players.size());
+		int random = (int)(Math.random() * players.size());
+		System.out.println(random);
 		playerTurn = random;
 
 	}
