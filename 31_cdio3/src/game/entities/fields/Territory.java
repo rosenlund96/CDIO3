@@ -28,10 +28,6 @@ public class Territory extends Ownable {
 			output.showPlayerIsOwner(player.getName());
 	}
 
-	@Override 
-	public Player getOwner() {
-		return owner;
-	}
 
 	private void transferRent(Player player){
 		int withdrawAmount = player.withdraw(rent);
