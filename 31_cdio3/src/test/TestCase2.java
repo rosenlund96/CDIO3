@@ -40,6 +40,7 @@ public class TestCase2 {
 
 		// setting owner
 		t.landOnField(owner);
+		assertEquals("owner har ikke betalt korrekt beløb for feltet", 2500, owner.getBalance());
 
 		// player landing and paying rent
 		t.landOnField(player);
