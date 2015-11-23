@@ -40,6 +40,9 @@ public class Balance {
 		return amount;
 	}
 
-	// Mutators
+	@Override
+	public String toString() {
+		return "balance=" + balance;
+	}
 
 }

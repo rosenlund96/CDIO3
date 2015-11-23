@@ -49,4 +49,9 @@ public class LaborCamp extends Ownable {
 		owner.deposit(withdrawAmount);
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", baserent=" + rent;
+	}
 }

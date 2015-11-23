@@ -59,4 +59,10 @@ public class Player {
 		return withdrawen;
 	}
 
+	@Override
+	public String toString() {
+		return "Player [position=" + position + ", name=" + name + ", " + balance + ", isBroke=" + isBroke
+				+ "]";
+	}
+
 }

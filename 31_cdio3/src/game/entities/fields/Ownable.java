@@ -61,5 +61,14 @@ public abstract class Ownable extends Field {
 		owner = null;
 	}
 	
+	@Override
+	public String toString(){
+		String str = super.toString() + ", " + "price=" + price;
+		if(owner != null)
+			str += ", owner=" + owner.getName();
+		
+		return str;
+	}
+	
 
 }

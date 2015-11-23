@@ -35,4 +35,8 @@ public class Territory extends Ownable {
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
 
+	@Override
+	public String toString(){
+		return super.toString()+ ", rent="+rent;
+	}
 }

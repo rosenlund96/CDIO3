@@ -44,4 +44,9 @@ public class Tax extends Field {
 
 		output.showWithdrawMessage(player.getName(), amount);
 	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", tax=" + taxAmount;
+	}
 }

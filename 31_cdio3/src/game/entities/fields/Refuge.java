@@ -25,4 +25,9 @@ public class Refuge extends Field {
 	public int getBonus(){
 		return bonus;
 	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", bonus=" + bonus;
+	}
 }

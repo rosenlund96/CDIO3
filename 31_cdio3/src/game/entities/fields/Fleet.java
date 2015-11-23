@@ -46,4 +46,30 @@ public class Fleet extends Ownable {
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
 
+	@Override
+	public String toString(){
+		int fieldsOwned = 0;
+		if(owner != null)
+			fieldsOwned = fieldManager.getFieldsOwned(owner, FieldType.FLEET);
+
+		int currentRent = RENT_1;
+
+		switch(fieldsOwned){
+		case 1:
+			currentRent = RENT_1;
+			break;
+		case 2: 
+			currentRent = RENT_2;
+			break;
+		case 3:
+			currentRent = RENT_3;
+			break;
+		case 4: 
+			currentRent = RENT_4;
+			break;
+		}
+		
+		return super.toString() + ", rent=" + currentRent;
+
+	}
 }
