@@ -59,12 +59,9 @@ public class GameBoard {
 
 	// Resolves starting player
 	public void findStartingPlayer(){
-		System.out.println(players.size());
-		int random = (int)(Math.random() * players.size());
-		System.out.println(random);
-		playerTurn = random;
-
+		playerTurn = (int)(Math.random() * players.size());
 	}
+	
 	public String isActivePlayerBroke(){
 		String playerName = null;
 		if (players.get(playerTurn).getBroke()){

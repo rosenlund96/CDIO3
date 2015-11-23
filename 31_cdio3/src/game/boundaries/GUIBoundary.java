@@ -231,7 +231,7 @@ public class GUIBoundary implements Outputable{
 		String s1 = reader.getElement("taxChoice", 0);
 		String s2 = reader.getElement("taxChoice", 1);
 		
-		String msg = playerName + ": " + s1 + "(" + percentAmount + ")" + s2 + " " + taxAmount;
+		String msg = playerName + ": " + s1 + "(" + percentAmount + ") " + s2 + " " + taxAmount;
 		String btnPercent = reader.getElement("taxButton", 0) + "(" + percentAmount + ")";
 		String btnTaxAmount = String.valueOf(taxAmount);
 		String result = GUI.getUserButtonPressed(msg, btnPercent, btnTaxAmount);
