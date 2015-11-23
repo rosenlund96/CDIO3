@@ -15,7 +15,10 @@ public class FieldManager {
 
 	public final int NUMBER_OF_FIELDS = 21;
 	private Field[] fields;
-
+	
+	/**************************************************
+	 * Construktor, takes a gui to pass to the fields *
+	 **************************************************/
 	public FieldManager(Outputable gui){
 		initializeFields(gui);
 
@@ -25,20 +28,24 @@ public class FieldManager {
 		return NUMBER_OF_FIELDS;
 	}
 
-	// Is used to find the number of specific fieldtypes a player owns.
+	/***************************************************************************
+	 * Returns an int with the number of fields owned of a type by a player    *
+	 ***************************************************************************/
 	public int getFieldsOwned(Player player, FieldType fieldtype){
 		int count = 0;
+		// Counts fields owned of a specific type by a player
 		for (int i = 0; i < fields.length; i++) {
 			if (fields[i] instanceof Ownable){
 				if (((Ownable)fields[i]).getOwner() == player && fields[i].getFieldType() == fieldtype){
 					count ++;		
 				}
 			}
-	
 		}
 		return count;
 	}
-
+	/****************************************
+	 * Returnes the field number of a field *
+	 ****************************************/
 	public int getFieldNumber(Field field){
 		int number  = 0;
 		for(int i = 0; i < NUMBER_OF_FIELDS; i++){
@@ -49,13 +56,15 @@ public class FieldManager {
 	
 	}
 
-	// Is used to calculate the tax value of all owned fields.
+	/*********************************************************
+	 * Returnes the value of all fields owned by a player    *
+	 *********************************************************/
 	public int getFieldsValue(Player player){
 		int value = 0;
 		for (int i = 0; i < fields.length; i++) {
-			// check whether fields[i] is of class Ownable
+			// Checks whether fields[i] is of class Ownable
 			if(fields[i] instanceof Ownable){
-				// if it is, cast and use ownable methods
+				//If it is, cast and use ownable methods
 				if (((Ownable)fields[i]).getOwner() == player){
 					value += ((Ownable)fields[i]).getPrice();
 				}
@@ -63,7 +72,10 @@ public class FieldManager {
 		}
 		return value;
 	}
-
+	
+	/***************************************************************
+	 * Frees up all fields own by a player so others can buy them  *
+	 ***************************************************************/
 	public void freeFields(Player player){
 		for(Field f: fields){
 			if(f instanceof Ownable){
@@ -72,12 +84,16 @@ public class FieldManager {
 			}
 		}
 	}
-
+	/*********************************************
+	 * Uses landOnField on a field with a player *
+	 *********************************************/
 	public void landOnFieldByNumber(Player player, int fieldNumber){
 		fields[fieldNumber].landOnField(player);
 	}
 	
-	
+	/************************************************************
+	 * Creates the array of fields use from the FieldData class *
+	 ************************************************************/
 	private void initializeFields(Outputable gui){
 		fields = new Field[NUMBER_OF_FIELDS];
 
@@ -101,6 +117,4 @@ public class FieldManager {
 			}	
 		}	
 	}
-
-
 }
