@@ -5,14 +5,14 @@
 	<promptName>Lad feltet være tomt for at starte spillet</promptName>
 	<promptName>Du skal indtaste mindst to navne</promptName>
 	<starting>starter</starting>
-	<rollDice>Kast Terningerne</rollDice>
+	<rollDice>Kast terningerne</rollDice>
 	<winner>har vundet spillet. Ønskes omspil?</winner>
 	<withdraw>Der bliver trukket</withdraw>
 	<withdraw>fra din konto.</withdraw>
 	<deposit>Der bliver sat</deposit>
 	<deposit>ind på din konto.</deposit>
 	<isOwner>Du ejer selv feltet, og skal ikke betale leje</isOwner>
-	<transfer>Du overføre</transfer>
+	<transfer>Du overfører</transfer>
 	<transfer>til</transfer>
 	<lowBalance>Du har ikke råd til at købe feltet</lowBalance>
 	<declinedBuy>Du har valgt ikke at købe feltet</declinedBuy>
@@ -32,13 +32,13 @@
 	<ownable>Pris:</ownable>
 	<territory>leje:</territory>
 	<fleet>leje alt efter antal ejet fleets:</fleet>
-	<laborCamp>leje: antal øjne gange antal laborCamps * 100</laborCamp>
+	<laborCamp>leje: antal øjne gange antal laborCamps gange 100</laborCamp>
 	
-	<tribeEncampment>Stamme Lejr</tribeEncampment>
+	<tribeEncampment>Stammelejr</tribeEncampment>
 	<crater>Krater</crater>
 	<mountain>Bjerg</mountain>
-	<coldDesert>Kold Ørken</coldDesert>
-	<blackCave>Mørk Hule</blackCave>
+	<coldDesert>Kold ørken</coldDesert>
+	<blackCave>Mørk hule</blackCave>
 	<theWerewall>Varulve Muren</theWerewall>
 	<mountainVillage>Bjerg Byen</mountainVillage>
 	<southCitadel>Sydlige Citadel</southCitadel>
