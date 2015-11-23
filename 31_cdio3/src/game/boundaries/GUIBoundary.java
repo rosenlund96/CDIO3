@@ -192,6 +192,7 @@ public class GUIBoundary implements Outputable{
 
 	@Override
 	public void showBrokeMessage(String playerName) {
+		GUI.removeAllCars(playerName);
 		String s1 = reader.getElement("broke", 0);
 		
 		String msg = playerName + ": " + s1;
@@ -204,7 +205,7 @@ public class GUIBoundary implements Outputable{
 		String s1 = reader.getElement("rollDice", 0);
 		String btnRoll = reader.getElement("roll", 0);
 		
-		String msg = playerName + ". " + s1;
+		String msg = playerName + ": " + s1;
 		GUI.getUserButtonPressed(msg, btnRoll);
 	}
 
