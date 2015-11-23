@@ -6,7 +6,7 @@ import game.entities.Player;
 
 public class Refuge extends Field {
 
-	protected int bonus; 
+	private int bonus; 
 
 	public Refuge(FieldManager fieldManager, int bonus, Outputable output) {
 		super(fieldManager, FieldType.REFUGE, output);
