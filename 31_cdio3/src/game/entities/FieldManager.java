@@ -1,20 +1,20 @@
 package game.entities;
 
 import game.boundaries.Outputable;
-import game.entities.fields.Field;
+import game.entities.fields.AbstractField;
 import game.entities.fields.Fleet;
 import game.entities.fields.LaborCamp;
-import game.entities.fields.Ownable;
+import game.entities.fields.AbstractOwnable;
 import game.entities.fields.Refuge;
 import game.entities.fields.Tax;
 import game.entities.fields.Territory;
-import game.entities.fields.Field.FieldType;
+import game.entities.fields.AbstractField.FieldType;
 import game.resources.FieldData;
 
 public class FieldManager {
 
 	public final int NUMBER_OF_FIELDS = 21;
-	private Field[] fields;
+	private AbstractField[] fields;
 	
 	/**************************************************
 	 * Construktor, takes a gui to pass to the fields *
@@ -35,8 +35,8 @@ public class FieldManager {
 		int count = 0;
 		// Counts fields owned of a specific type by a player
 		for (int i = 0; i < fields.length; i++) {
-			if (fields[i] instanceof Ownable){
-				if (((Ownable)fields[i]).getOwner() == player && fields[i].getFieldType() == fieldtype){
+			if (fields[i] instanceof AbstractOwnable){
+				if (((AbstractOwnable)fields[i]).getOwner() == player && fields[i].getFieldType() == fieldtype){
 					count ++;		
 				}
 			}
@@ -46,7 +46,7 @@ public class FieldManager {
 	/****************************************
 	 * Returnes the field number of a field *
 	 ****************************************/
-	public int getFieldNumber(Field field){
+	public int getFieldNumber(AbstractField field){
 		int number  = 0;
 		for(int i = 0; i < NUMBER_OF_FIELDS; i++){
 			if(field == fields[i])
@@ -63,10 +63,10 @@ public class FieldManager {
 		int value = 0;
 		for (int i = 0; i < fields.length; i++) {
 			// Checks whether fields[i] is of class Ownable
-			if(fields[i] instanceof Ownable){
+			if(fields[i] instanceof AbstractOwnable){
 				//If it is, cast and use ownable methods
-				if (((Ownable)fields[i]).getOwner() == player){
-					value += ((Ownable)fields[i]).getPrice();
+				if (((AbstractOwnable)fields[i]).getOwner() == player){
+					value += ((AbstractOwnable)fields[i]).getPrice();
 				}
 			}
 		}
@@ -77,10 +77,10 @@ public class FieldManager {
 	 * Frees up all fields own by a player so others can buy them  *
 	 ***************************************************************/
 	public void freeFields(Player player){
-		for(Field f: fields){
-			if(f instanceof Ownable){
-				if(((Ownable)f).getOwner() == player)
-					((Ownable)f).clearOwner();
+		for(AbstractField f: fields){
+			if(f instanceof AbstractOwnable){
+				if(((AbstractOwnable)f).getOwner() == player)
+					((AbstractOwnable)f).clearOwner();
 			}
 		}
 	}
@@ -95,7 +95,7 @@ public class FieldManager {
 	 * Creates the array of fields use from the FieldData class *
 	 ************************************************************/
 	private void initializeFields(Outputable gui){
-		fields = new Field[NUMBER_OF_FIELDS];
+		fields = new AbstractField[NUMBER_OF_FIELDS];
 
 		for (int i = 0; i < fields.length; i++) {
 			switch(FieldData.FIELDTYPE_DATA[i]){

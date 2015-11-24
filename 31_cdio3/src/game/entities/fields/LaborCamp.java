@@ -5,7 +5,7 @@ import game.entities.FieldManager;
 import game.entities.Player;
 import game.util.DieCup;
 
-public class LaborCamp extends Ownable {
+public class LaborCamp extends AbstractOwnable {
 
 
 	private DieCup dices;		// for rent calculation 

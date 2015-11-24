@@ -4,13 +4,13 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public abstract class Ownable extends Field {
+public abstract class AbstractOwnable extends AbstractField {
 
 	protected int price;
 	protected int rent; 
 	protected Player owner;
 
-	public Ownable(FieldManager fieldManager, FieldType fieldType, int price, int rent ,Outputable output) {
+	public AbstractOwnable(FieldManager fieldManager, FieldType fieldType, int price, int rent ,Outputable output) {
 		super(fieldManager, fieldType, output);
 		this.price = price;
 		this.rent = rent; 

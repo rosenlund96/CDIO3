@@ -49,6 +49,11 @@ public class Player {
 		balance.deposit(amount);
 	}
 
+	/*
+	 * Removes the amount from balance set as a parameter.
+	 * If this is not possible it returns the amount which was
+	 * able to be withdrawn
+	 */
 	public int withdraw(int amount){
 		int withdrawen = balance.withdraw(amount);
 		

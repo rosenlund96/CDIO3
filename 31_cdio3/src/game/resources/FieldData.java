@@ -1,7 +1,7 @@
 package game.resources;
 
-import game.entities.fields.Field;
-import game.entities.fields.Field.FieldType;
+import game.entities.fields.AbstractField;
+import game.entities.fields.AbstractField.FieldType;
 
 public class FieldData {
 	public static final String[] FIELDNAME_DATA = {
@@ -42,27 +42,27 @@ public class FieldData {
 			true};
 	
 	public static final FieldType[] FIELDTYPE_DATA = {
-			Field.FieldType.TERRITORY,
-			Field.FieldType.TERRITORY,
-			Field.FieldType.TERRITORY, 
-			Field.FieldType.FLEET, 
-			Field.FieldType.REFUGE, 
-			Field.FieldType.TAX, 
-			Field.FieldType.TERRITORY, 
-			Field.FieldType.TERRITORY,
-			Field.FieldType.TERRITORY, 
-			Field.FieldType.FLEET,
-			Field.FieldType.LABOR_CAMP, 
-			Field.FieldType.TERRITORY,
-			Field.FieldType.TERRITORY, 
-			Field.FieldType.TERRITORY,
-			Field.FieldType.FLEET, 
-			Field.FieldType.TAX, 
-			Field.FieldType.REFUGE, 
-			Field.FieldType.LABOR_CAMP,
-			Field.FieldType.TERRITORY, 
-			Field.FieldType.TERRITORY,
-			Field.FieldType.FLEET
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.TERRITORY, 
+			AbstractField.FieldType.FLEET, 
+			AbstractField.FieldType.REFUGE, 
+			AbstractField.FieldType.TAX, 
+			AbstractField.FieldType.TERRITORY, 
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.TERRITORY, 
+			AbstractField.FieldType.FLEET,
+			AbstractField.FieldType.LABOR_CAMP, 
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.TERRITORY, 
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.FLEET, 
+			AbstractField.FieldType.TAX, 
+			AbstractField.FieldType.REFUGE, 
+			AbstractField.FieldType.LABOR_CAMP,
+			AbstractField.FieldType.TERRITORY, 
+			AbstractField.FieldType.TERRITORY,
+			AbstractField.FieldType.FLEET
 			};
 	
 	

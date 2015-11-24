@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Refuge extends Field {
+public class Refuge extends AbstractField {
 
 	private int bonus; 
 

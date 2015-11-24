@@ -4,9 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Territory extends Ownable {
-
-
+public class Territory extends AbstractOwnable {
 
 	public Territory(FieldManager fieldManager, int price, int rent, Outputable output) {
 		super(fieldManager, FieldType.TERRITORY, price, rent, output);
@@ -29,6 +27,10 @@ public class Territory extends Ownable {
 	}
 
 
+	/**
+	 * Transfer rent from player to owner
+	 * @param player the player which should transfer the money to the owner
+	 */
 	private void transferRent(Player player){
 		int withdrawAmount = player.withdraw(rent);
 		owner.deposit(withdrawAmount);

@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Tax extends Field {
+public class Tax extends AbstractField {
 	
 	private int taxAmount;
 

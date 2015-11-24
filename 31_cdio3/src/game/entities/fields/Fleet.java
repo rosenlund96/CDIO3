@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Fleet extends Ownable {
+public class Fleet extends AbstractOwnable {
 
 	private final int RENT_1 = 500;
 	private final int RENT_2 = 1000;

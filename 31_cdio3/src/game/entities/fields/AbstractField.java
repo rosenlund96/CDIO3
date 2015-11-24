@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public abstract class Field {
+public abstract class AbstractField {
 
 	public enum FieldType{TERRITORY, LABOR_CAMP, FLEET, TAX, REFUGE}
 
@@ -14,7 +14,7 @@ public abstract class Field {
 	protected FieldType fieldType;
 
 
-	public Field(FieldManager fieldManager, FieldType fieldType, Outputable output) {
+	public AbstractField(FieldManager fieldManager, FieldType fieldType, Outputable output) {
 		this.fieldManager = fieldManager;
 		this.output = output;
 		this.fieldType = fieldType;
