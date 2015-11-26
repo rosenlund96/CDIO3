@@ -53,12 +53,12 @@ public class GameBoard {
 	 * Moves the player an int amount from where he is    *
 	 ******************************************************/
 	public void moveActivePlayer(int amount ){
-		players.get(playerTurn).setPosition(((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields()));
+		players.get(playerTurn).setPosition((players.get(playerTurn).getPosition() + amount) % fieldManager.getNumberOfFields());
 		
 		
 	}
 	/********************************************
-	 * Moves the player in the fieldmanager     *
+	 * Registers player movement in fieldManager*
 	 ********************************************/
 	public void activePlayerFieldAction(){
 		fieldManager.landOnFieldByNumber(players.get(playerTurn), players.get(playerTurn).getPosition());

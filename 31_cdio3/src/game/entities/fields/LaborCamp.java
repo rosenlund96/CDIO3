@@ -5,7 +5,7 @@ import game.entities.FieldManager;
 import game.entities.Player;
 import game.util.DieCup;
 
-public class LaborCamp extends Ownable {
+public class LaborCamp extends AbstractOwnable {
 
 
 	private DieCup dices;		// for rent calculation 
@@ -48,5 +48,10 @@ public class LaborCamp extends Ownable {
 		// deposits the withdrawed money
 		owner.deposit(withdrawAmount);
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
+	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", baserent=" + rent;
 	}
 }

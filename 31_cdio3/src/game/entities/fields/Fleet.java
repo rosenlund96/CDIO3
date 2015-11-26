@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Fleet extends Ownable {
+public class Fleet extends AbstractOwnable {
 
 	private final int RENT_1 = 500;
 	private final int RENT_2 = 1000;
@@ -46,4 +46,30 @@ public class Fleet extends Ownable {
 		output.showTransferMessage(player.getName(), owner.getName(), withdrawAmount);
 	}
 
+	@Override
+	public String toString(){
+		int fieldsOwned = 0;
+		if(owner != null)
+			fieldsOwned = fieldManager.getFieldsOwned(owner, FieldType.FLEET);
+
+		int currentRent = RENT_1;
+
+		switch(fieldsOwned){
+		case 1:
+			currentRent = RENT_1;
+			break;
+		case 2: 
+			currentRent = RENT_2;
+			break;
+		case 3:
+			currentRent = RENT_3;
+			break;
+		case 4: 
+			currentRent = RENT_4;
+			break;
+		}
+		
+		return super.toString() + ", rent=" + currentRent;
+
+	}
 }

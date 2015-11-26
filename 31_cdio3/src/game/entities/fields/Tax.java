@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Tax extends Field {
+public class Tax extends AbstractField {
 	
 	private int taxAmount;
 
@@ -43,5 +43,10 @@ public class Tax extends Field {
 		player.withdraw(amount);
 
 		output.showWithdrawMessage(player.getName(), amount);
+	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", tax=" + taxAmount;
 	}
 }

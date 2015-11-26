@@ -4,7 +4,7 @@ import game.boundaries.Outputable;
 import game.entities.FieldManager;
 import game.entities.Player;
 
-public class Refuge extends Field {
+public class Refuge extends AbstractField {
 
 	private int bonus; 
 
@@ -24,5 +24,10 @@ public class Refuge extends Field {
 	
 	public int getBonus(){
 		return bonus;
+	}
+	
+	@Override
+	public String toString(){
+		return super.toString() + ", bonus=" + bonus;
 	}
 }
