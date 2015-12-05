@@ -45,6 +45,10 @@ public class Tax extends AbstractField {
 		output.showWithdrawMessage(player.getName(), amount);
 	}
 	
+	public int getTaxAmount(){
+		return this.taxAmount;
+	}
+	
 	@Override
 	public String toString(){
 		return super.toString() + ", tax=" + taxAmount;
