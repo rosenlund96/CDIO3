@@ -16,6 +16,7 @@ public class Tax extends AbstractField {
 	@Override
 	public void landOnField(Player player) {
 		// If tax is 2000
+		
 		if(taxAmount == 2000){
 			collectTax(2000, player);
 
